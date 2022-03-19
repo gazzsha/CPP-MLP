@@ -1,0 +1,2 @@
+*.zip filter=lfs diff=lfs merge=lfs -text
+src/emnist-letters-train.csv filter=lfs diff=lfs merge=lfs -text
