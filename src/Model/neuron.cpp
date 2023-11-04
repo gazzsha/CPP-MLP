@@ -3,13 +3,29 @@
 namespace s21{ 
     double GraphNeuron::get_rand_number() noexcept { 
         return ((double) std::rand() / (RAND_MAX));
+      // return 2;
     }
     double GraphNeuron::get_value() const noexcept { 
         return value;
     }
+     double GraphNeuron::get_error() const noexcept { 
+        return error;
+    }
+      double GraphNeuron::get_weights_delta() const noexcept { 
+        return weights_delta;
+    }
     void GraphNeuron::set_value(const double& val) noexcept { 
         value = val;
     }
+    void GraphNeuron::set_error(const double& err) noexcept { 
+        error = err;
+    }
+      void GraphNeuron::set_weights_delta(const double& w) noexcept { 
+        weights_delta = w;
+    }
+      double GraphNeuron::get_function_value(const double& val) const noexcept { 
+        return 1.0f/(1.0f + std::exp(-val)); 
+     }
     void GraphNeuron::set_weght_default(const size_t& sz) { 
        for (size_t i = 0; i < sz; ++i) { 
             weights.push_back(get_rand_number());
@@ -88,7 +104,7 @@ namespace s21{
      }
 
     // sz - кол-во скрытых слоев, N - кол-во нейронов в скрытом слое
-    GraphPreceptron::GraphPreceptron(const std::vector<double>& vec,const size_t& n,const size_t& sz,const size_t& output_size): size(sz),enter_layer(vec),output_layer(output_size) {
+    GraphPreceptron::GraphPreceptron(const size_t& size_enter,const size_t& n,const size_t& sz,const size_t& output_size): size(sz),enter_layer(size_enter),output_layer(output_size) {
         for (size_t i = 0; i < sz; ++i) {
         shadow_layers.emplace_back(n);
             for (size_t j = 0; j <  shadow_layers[i].get_neurons().size(); ++j) {
@@ -101,7 +117,8 @@ namespace s21{
     }
 
      double GraphPreceptron::get_function_value(const double& val) const noexcept { 
-        return 1.0f/(1.0f + std::exp(-val)); 
+       return 1.0f/(1.0f + std::exp(-val)); 
+       //return val;
      }
 
     void GraphPreceptron::DirectPassage() {
@@ -152,6 +169,86 @@ namespace s21{
             }
             output_layer.get_neurons()[i].set_value(get_function_value(sum));
         }
-        
     }
+
+    void GraphPreceptron::Predict() { 
+        GraphNeuron * cur = &enter_layer.get_neurons()[0];
+        while (!(cur->next).empty()) {
+            for (size_t i = 0; i != cur->next.size(); ++i) { 
+                cur = cur->next[i];
+            double sum = 0;
+            for (size_t j = 0; j != cur->prev.size(); ++j) { 
+                sum += cur->prev[j]->get_value() * cur->weights[j];
+            }
+            cur->set_value(get_function_value(sum));
+            cur = cur -> prev[0];
+            }
+            cur = cur -> next[0];
+        }
+    }
+
+      GraphNeuron * GraphPreceptron::BeginOutputLayer() noexcept { 
+        return &output_layer.get_neurons()[0];
+      }
+
+      void GraphPreceptron::InputEnterLayer(const std::vector<double>& vec) { 
+        for (size_t i = 0; i < vec.size(); ++i ) { 
+            enter_layer.get_neurons()[i].set_value(vec[i]);
+        }
+      }
+
+     void GraphPreceptron::train(const std::vector<double>& input_stat,const std::vector<double>& expect,const double& learning_rate) { 
+        InputEnterLayer(input_stat);
+        Predict();
+        GraphNeuron * cur = BeginOutputLayer();
+        cur = cur->prev[0];
+        for (size_t i = 0; i < cur->next.size(); ++i) { 
+            cur = cur -> next[i];
+            cur->set_error(cur->get_value() - expect[i]);
+            cur->set_weights_delta(cur->get_error() * cur->get_value() * (1.0f - cur->get_value()));
+            for (size_t j = 0; j < cur->get_weights().size(); ++j) { 
+                cur->get_weights()[j] = cur->get_weights()[j] - cur->prev[j]->get_value() * cur->get_weights_delta() * learning_rate;
+            }
+            cur = cur -> prev[0];
+        }
+        cur = cur->prev[0];
+        for (size_t i = 0; i != cur->next.size(); ++i) { 
+            cur = cur -> next[i];
+            double error_ = 0;
+            for (size_t j = 0; j != cur->next.size(); ++j) { 
+                error_ = cur->next[j]->get_weights()[i] * cur->next[j]->get_weights_delta();
+            }
+            cur->set_error(error_);
+            cur = cur -> prev[0];
+        }
+       TrainAll(learning_rate);
+     }
+
+      void GraphPreceptron::TrainAll(const double& learning_rate) { 
+        GraphNeuron * cur = BeginOutputLayer();
+        cur = cur->prev[0];
+        while (!cur->prev.empty()) { 
+            cur = cur -> prev[0];
+            for (size_t i = 0; i < cur->next.size(); ++i) { 
+            cur = cur -> next[i];
+            cur->set_weights_delta(cur->get_error() * cur->get_value() * (1 - cur->get_value()));
+            for (size_t j = 0; j < cur->get_weights().size(); ++j) { 
+                cur->get_weights()[j] = cur->get_weights()[j] - cur->prev[j]->get_value() * cur->get_weights_delta() * learning_rate;
+            }
+            cur = cur -> prev[0];
+        }
+        if (!cur->prev.empty()) {
+        cur = cur->prev[0];
+        for (size_t i = 0; i != cur->next.size(); ++i) { 
+            cur = cur -> next[i];
+            double error_ = 0;
+            for (size_t j = 0; j != cur->next.size(); ++j) { 
+                error_ = cur->next[j]->get_weights()[i] * cur->next[j]->get_error();
+            }
+            cur->set_error(error_);
+            cur = cur -> prev[0];
+        }
+        }
+        }
+      }
 } //namespace s21
