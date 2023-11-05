@@ -27,7 +27,26 @@ void View::on_pushLoad_clicked()
 void View::on_pushClear_clicked()
 {
     scene->clear();
-    qDebug() << scene->sceneRect().size();
 
+}
+
+
+
+void View::on_pushPredict_clicked()
+{
+    QImage image(scene->sceneRect().size().toSize(), QImage::Format_ARGB32);
+    image.fill(Qt::transparent);
+    QPainter painter(&image);
+    scene->render(&painter);
+    QVector<QVector<double>> pixel_matrix;
+    
+    for (int x = 0; x < image.width(); x++) {
+        QVector<double> row;
+        for (int y = 0; y < image.height(); y++) {
+            QRgb pixel_color = image.pixel(x, y);
+            row.append((double(qRed(pixel_color)) + double(qGreen(pixel_color)) + double(qBlue(pixel_color)))/3.0f);
+        }
+        pixel_matrix.append(row);
+    }
 }
 

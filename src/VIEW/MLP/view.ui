@@ -342,7 +342,7 @@ color: white;</string>
       <x>770</x>
       <y>630</y>
       <width>271</width>
-      <height>131</height>
+      <height>179</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -621,30 +621,74 @@ color: white;</string>
      <string notr="true">background-color: white;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushClear">
+   <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>20</y>
-      <width>271</width>
-      <height>21</height>
+      <y>10</y>
+      <width>741</width>
+      <height>41</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <family>Ayuthaya</family>
-      <pointsize>17</pointsize>
-      <italic>true</italic>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-radius: 10px;
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QPushButton" name="pushClear_3">
+       <property name="font">
+        <font>
+         <family>Ayuthaya</family>
+         <pointsize>17</pointsize>
+         <italic>true</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius: 10px;
  background-color: rgb(236, 233, 238);</string>
-    </property>
-    <property name="text">
-     <string>Clear</string>
-    </property>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushPredict">
+       <property name="font">
+        <font>
+         <family>Ayuthaya</family>
+         <pointsize>17</pointsize>
+         <italic>true</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius: 10px;
+ background-color: rgb(236, 233, 238);</string>
+       </property>
+       <property name="text">
+        <string>Predict</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushClear">
+       <property name="font">
+        <font>
+         <family>Ayuthaya</family>
+         <pointsize>17</pointsize>
+         <italic>true</italic>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius: 10px;
+ background-color: rgb(236, 233, 238);</string>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

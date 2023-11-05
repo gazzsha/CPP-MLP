@@ -63,6 +63,10 @@ public:
     QPushButton *pushLoad;
     QPushButton *pushTraib;
     QGraphicsView *graphicsView;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout_4;
+    QPushButton *pushClear_3;
+    QPushButton *pushPredict;
     QPushButton *pushClear;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -258,7 +262,7 @@ public:
 
         gridLayoutWidget = new QWidget(centralwidget);
         gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(770, 630, 271, 131));
+        gridLayoutWidget->setGeometry(QRect(770, 630, 271, 179));
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
@@ -373,12 +377,36 @@ public:
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
         graphicsView->setGeometry(QRect(20, 50, 741, 711));
         graphicsView->setStyleSheet(QString::fromUtf8("background-color: white;"));
-        pushClear = new QPushButton(centralwidget);
+        horizontalLayoutWidget = new QWidget(centralwidget);
+        horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(20, 10, 741, 41));
+        horizontalLayout_4 = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        pushClear_3 = new QPushButton(horizontalLayoutWidget);
+        pushClear_3->setObjectName(QString::fromUtf8("pushClear_3"));
+        pushClear_3->setFont(font7);
+        pushClear_3->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
+" background-color: rgb(236, 233, 238);"));
+
+        horizontalLayout_4->addWidget(pushClear_3);
+
+        pushPredict = new QPushButton(horizontalLayoutWidget);
+        pushPredict->setObjectName(QString::fromUtf8("pushPredict"));
+        pushPredict->setFont(font7);
+        pushPredict->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
+" background-color: rgb(236, 233, 238);"));
+
+        horizontalLayout_4->addWidget(pushPredict);
+
+        pushClear = new QPushButton(horizontalLayoutWidget);
         pushClear->setObjectName(QString::fromUtf8("pushClear"));
-        pushClear->setGeometry(QRect(20, 20, 271, 21));
         pushClear->setFont(font7);
         pushClear->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
 " background-color: rgb(236, 233, 238);"));
+
+        horizontalLayout_4->addWidget(pushClear);
+
         View->setCentralWidget(centralwidget);
         menubar = new QMenuBar(View);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -418,6 +446,8 @@ public:
         label_13->setText(QCoreApplication::translate("View", "0.0", nullptr));
         pushLoad->setText(QCoreApplication::translate("View", "Load BMP...", nullptr));
         pushTraib->setText(QCoreApplication::translate("View", "Train", nullptr));
+        pushClear_3->setText(QCoreApplication::translate("View", "Clear", nullptr));
+        pushPredict->setText(QCoreApplication::translate("View", "Predict", nullptr));
         pushClear->setText(QCoreApplication::translate("View", "Clear", nullptr));
     } // retranslateUi
 

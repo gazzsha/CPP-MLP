@@ -21,6 +21,7 @@ private slots:
     void on_pushLoad_clicked();
 
     void on_pushClear_clicked();
+    void on_pushPredict_clicked();
 
 private:
     Ui::View *ui;
