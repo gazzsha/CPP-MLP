@@ -54,8 +54,8 @@ class GraphPreceptron {
  public:
   GraphPreceptron() = delete;
   GraphPreceptron(const GraphPreceptron&) = delete;
-  GraphPreceptron(const size_t&, const size_t&, const size_t& = 1,
-                  const size_t& = 1);
+  GraphPreceptron(const size_t&, const size_t&, const size_t& = 2,
+                  const size_t& = 26);
   GraphNeuron* BeginOutputLayer() noexcept;
   void InitializingFirstLayer();
   void InitializingShadowLayer();
@@ -63,8 +63,8 @@ class GraphPreceptron {
   void DirectPassage();
   void Predict(const std::vector<double>& vec);
   void train(const std::vector<double>&, const std::vector<double>&,
-             const double& = 0.05);
-  void TrainAll(const double& = 0.05);
+             const double& = 0.25);
+  void TrainAll(const double& = 0.25);
   void InputEnterLayer(const std::vector<double>&);
   std::vector<double> get_output_vector() noexcept;
   void print() {

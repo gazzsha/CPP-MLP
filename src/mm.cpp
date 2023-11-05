@@ -19,10 +19,10 @@ void Perceptron::GetData(const std::string& file_name_) {
         double number = std::stod(value);
 
         if (firstValue) {
-          answer.push_back(number);
+          answer.push_back(number/255.0f);
           firstValue = false;
         } else {
-          one_tests_.push_back(number);
+          one_tests_.push_back(number/255.f);
         }
       }
       all_neurons_tests_.push_back(one_tests_);
