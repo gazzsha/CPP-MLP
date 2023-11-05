@@ -1,5 +1,5 @@
 #include "neuron.h"
-
+#include "../mm.h"
 int main() {
   // std::vector<double> v {1,2,3,4,5};
   // std::vector<double> o
