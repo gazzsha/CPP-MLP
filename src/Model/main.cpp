@@ -60,12 +60,16 @@ int main() {
 //   std::cout << "============\n";
 //  //gp.paint();
   s21::Model model(3,2);
-  model.set_path_file("../emnist-letters-train.csv");
-  model.train_graph_network();
-  model.set_path_file("../emnist-letters-test.csv");
+  // model.set_path_file("../emnist-letters-train.csv");
+  // model.train_graph_network();
+   model.set_path_file("../emnist-letters-test.csv");
+  // model.test_graph_network();
+  // model.write_to_file_weights();
+  model.read_from_file_weights();
   model.test_graph_network();
 
-  
+
+
 
 
 

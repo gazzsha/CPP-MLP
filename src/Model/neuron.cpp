@@ -261,4 +261,38 @@ namespace s21{
         }
         }
       }
+
+    void GraphPreceptron::write_to_file_weights() {         
+    std::ofstream file("weights.txt");
+     GraphNeuron * cur = &enter_layer.get_neurons()[0];
+        while (!(cur->next).empty()) {
+            for (size_t i = 0; i != cur->next.size(); ++i) { 
+                cur = cur->next[i];
+            for (size_t j = 0; j != cur->get_weights().size(); ++j) { 
+                file << cur->get_weights()[j] << " ";
+            }
+            file << "\n";
+            cur = cur -> prev[0];
+            }
+            cur = cur -> next[0];
+        }
+    }
+
+    void GraphPreceptron::read_from_file_weights() { 
+        std::ifstream istrm("weights.txt");
+        if (!istrm.is_open()) throw std::runtime_error("Failed to open file");
+        GraphNeuron * cur = &enter_layer.get_neurons()[0];
+             while (!(cur->next).empty()) {
+            for (size_t i = 0; i != cur->next.size(); ++i) { 
+                cur = cur->next[i];
+            for (size_t j = 0; j != cur->get_weights().size(); ++j) { 
+                istrm >> cur->get_weights()[j];
+            }
+            cur = cur -> prev[0];
+            }
+            cur = cur -> next[0];
+        }
+        
+}
+
 } //namespace s21

@@ -6,6 +6,8 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <fstream>
+#include <sstream>
 namespace s21 {
 
 class GraphNeuron {
@@ -26,6 +28,7 @@ class GraphNeuron {
   std::vector<GraphNeuron*> prev;
   std::vector<GraphNeuron*> next;
   std::vector<double> weights;
+  
  private:
   double value = 0;
   double error = 0;
@@ -50,7 +53,7 @@ class GraphPreceptron {
  public:
   GraphPreceptron() = delete;
   GraphPreceptron(const GraphPreceptron&) = delete;
-  GraphPreceptron(const size_t& = 2,const size_t& = 768, const size_t& = 64,
+  GraphPreceptron(const size_t& = 3,const size_t& = 768, const size_t& = 64,
                   const size_t& = 26);
 //  void DirectPassage();
   void Predict(const std::vector<double>&);
@@ -58,6 +61,8 @@ class GraphPreceptron {
              const double& = 0.15);
   void TrainAll(const double& = 0.15);
   std::vector<double> get_output_vector() noexcept;
+  void write_to_file_weights();
+  void read_from_file_weights();
   // void print() {
   //   // for (int i = 0; i !=  output_layer.neurons.size(); ++i)
   //   //     std::cout << output_layer.neurons[i].value << "\n";

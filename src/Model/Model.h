@@ -12,6 +12,9 @@ class Model {
     Model() = delete; 
     Model(const size_t&,const size_t& = 1);
     void set_path_file(const std::string&);
+    void write_to_file_weights();
+    void read_from_file_weights();
+    void set_training_sample_share(const double&) noexcept;
     void train_graph_network();
     void test_graph_network();
     vector_ predict_graph_network(vector_ data);
@@ -23,6 +26,7 @@ class Model {
     double precision = 0;
     double recall = 0;
     double f_measure = 0;
+    double training_sample_share = 1;
     std::chrono::duration<double> time;
     std::chrono::time_point<std::chrono::steady_clock> start = std::chrono::steady_clock::now();
     size_t epochs;

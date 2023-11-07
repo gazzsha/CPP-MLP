@@ -7,10 +7,13 @@ namespace s21
     void Model::train_graph_network() {
         input.GetData();
         for (size_t i = 0; i < epochs; ++i) { 
-            for (size_t j = 0; j < input.all_neurons_tests_.size(); ++j) {
+            for (size_t j = 0; j < static_cast<size_t>(input.all_neurons_tests_.size() * training_sample_share); ++j) {
             graph_network.train(input.all_neurons_tests_[j],input.answer[j]);
             }
         }
+    }
+    void Model::set_training_sample_share(const double& val) noexcept { 
+        training_sample_share = val;
     }
     vector_ Model::predict_graph_network(vector_ input_stat) { 
         graph_network.Predict(input_stat);
@@ -68,7 +71,12 @@ namespace s21
             }
         }
     }
-
+    void Model::write_to_file_weights() { 
+        graph_network.write_to_file_weights();
+    }
+    void Model::read_from_file_weights() { 
+        graph_network.read_from_file_weights();
+    }
      bool Model::is_right_letter(const vector_& result,const vector_& expect,const double& elem) const { 
         auto it_result = std::find(result.begin(),result.end(),elem);
         auto index_result = std::distance(result.begin(),it_result);
@@ -80,7 +88,7 @@ namespace s21
         auto it_expect = std::max_element(expect.begin(), expect.end());
         auto index_result = std::distance(result.begin(),it_result);
         auto index_expect = std::distance(expect.begin(),it_expect);
-        return (index_result == index_expect);
+        return (index_result == index_expect && *it_result > 0.5);
     }
 
     size_t Model::count_of_true_result(const vector_& vec) const noexcept { 
