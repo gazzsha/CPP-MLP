@@ -97,5 +97,19 @@ namespace s21
             if (v > 0.5 ) temp_count++;
         return temp_count;
     }
-
+    double Model::get_average_accuracy() const noexcept {
+         return average_accuracy;
+    }
+    double Model::get_precision() const noexcept { 
+        return precision;
+    }
+    double Model::get_recall() const noexcept {
+         return recall;
+    }
+    double Model::get_f_measure() const noexcept { 
+        return f_measure;
+    }
+    void Model::set_epochs(const size_t& val) noexcept { 
+        epochs = val;
+    }
 } // namespace s21

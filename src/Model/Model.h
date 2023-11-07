@@ -18,6 +18,12 @@ class Model {
     void train_graph_network();
     void test_graph_network();
     vector_ predict_graph_network(vector_ data);
+    double get_average_accuracy() const noexcept;
+    double get_precision() const noexcept;
+    double get_recall() const noexcept;
+    double get_f_measure() const noexcept;
+    void set_epochs(const size_t&) noexcept;
+
     private:
     size_t count_hidden_layers; 
     GraphPreceptron graph_network;
