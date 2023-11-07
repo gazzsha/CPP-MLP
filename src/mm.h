@@ -19,7 +19,7 @@ public:
     void GetData(const std::string&);
     matrix_ all_neurons_tests_;
     vector_ one_tests_;
-    vector_ answer;
+    matrix_ answer;
 };
 
 

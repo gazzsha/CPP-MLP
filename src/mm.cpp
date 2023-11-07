@@ -19,10 +19,12 @@ void Perceptron::GetData(const std::string& file_name_) {
         double number = std::stod(value);
 
         if (firstValue) {
-          answer.push_back(number/255.0f);
+          std::vector<double> ans_(26,0);
+          ans_[number - 1] = 1;
+          answer.push_back(ans_);
           firstValue = false;
         } else {
-          one_tests_.push_back(number/255.f);
+          one_tests_.push_back(number/255.0f);
         }
       }
       all_neurons_tests_.push_back(one_tests_);
@@ -32,20 +34,3 @@ void Perceptron::GetData(const std::string& file_name_) {
 }
 }  // namespace s21
 
-// int main() {
-//     s21::Perceptron p;
-//     p.GetData("1.txt");
-//     for (auto i = 0; i < p.all_neurons_tests_.size(); ++i) {
-//         for (auto j = 0; j < p.all_neurons_tests_[i].size(); ++j) {
-//             std::cout << p.all_neurons_tests_[i][j] << " ";
-//         }
-//         std::cout << "\n";
-//     }
-
-//     std::cout << '\n';
-
-//     for (auto i = 0; i < p.answer.size(); ++i) {
-
-//         std::cout << p.answer[i] << '\n';
-//     }
-// }
