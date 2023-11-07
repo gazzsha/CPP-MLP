@@ -147,7 +147,7 @@ color: white;</string>
       </widget>
      </item>
      <item>
-      <widget class="QSpinBox" name="spinBox">
+      <widget class="QSpinBox" name="epochs_count_box">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -231,10 +231,13 @@ color: white;</string>
          <property name="text">
           <string>2</string>
          </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="radioButton_3">
+        <widget class="QRadioButton" name="count_3_hidden_layer">
          <property name="font">
           <font>
            <family>Charter</family>
@@ -255,7 +258,7 @@ color: white;</string>
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="radioButton_2">
+        <widget class="QRadioButton" name="count_4_hidden_layer">
          <property name="font">
           <font>
            <family>Charter</family>
@@ -276,7 +279,7 @@ color: white;</string>
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="radioButton_4">
+        <widget class="QRadioButton" name="count_5_hidden_layer">
          <property name="font">
           <font>
            <family>Charter</family>
@@ -329,6 +332,11 @@ color: white;</string>
      </item>
      <item>
       <widget class="QLabel" name="letter_label">
+       <property name="font">
+        <font>
+         <pointsize>26</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -452,7 +460,7 @@ color: white;</string>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLabel" name="label_9">
+      <widget class="QLabel" name="accuracy_label">
        <property name="font">
         <font>
          <family>Charter</family>
@@ -473,7 +481,7 @@ color: white;</string>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLabel" name="label_10">
+      <widget class="QLabel" name="precision_label">
        <property name="font">
         <font>
          <family>Charter</family>
@@ -494,7 +502,7 @@ color: white;</string>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLabel" name="label_11">
+      <widget class="QLabel" name="recall_label">
        <property name="font">
         <font>
          <family>Charter</family>
@@ -515,7 +523,7 @@ color: white;</string>
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QLabel" name="label_12">
+      <widget class="QLabel" name="f_mera_label">
        <property name="font">
         <font>
          <family>Charter</family>
@@ -536,7 +544,7 @@ color: white;</string>
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QLabel" name="label_13">
+      <widget class="QLabel" name="time_label">
        <property name="font">
         <font>
          <family>Charter</family>
@@ -562,7 +570,7 @@ color: white;</string>
     <property name="geometry">
      <rect>
       <x>770</x>
-      <y>50</y>
+      <y>70</y>
       <width>271</width>
       <height>21</height>
      </rect>
@@ -583,11 +591,11 @@ color: white;</string>
      <string>Load BMP...</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushTraib">
+   <widget class="QPushButton" name="push_train">
     <property name="geometry">
      <rect>
       <x>770</x>
-      <y>80</y>
+      <y>130</y>
       <width>271</width>
       <height>21</height>
      </rect>
@@ -689,6 +697,81 @@ color: white;</string>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QPushButton" name="push_training_data">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>40</y>
+      <width>271</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ayuthaya</family>
+      <pointsize>15</pointsize>
+      <italic>true</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+ background-color: rgb(236, 233, 238);</string>
+    </property>
+    <property name="text">
+     <string>Load Training Data...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="push_testing_data">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>100</y>
+      <width>271</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ayuthaya</family>
+      <pointsize>17</pointsize>
+      <italic>true</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+ background-color: rgb(236, 233, 238);</string>
+    </property>
+    <property name="text">
+     <string>Load Testing Data...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="push_check_testing_data">
+    <property name="geometry">
+     <rect>
+      <x>770</x>
+      <y>160</y>
+      <width>271</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ayuthaya</family>
+      <pointsize>17</pointsize>
+      <italic>true</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 10px;
+ background-color: rgb(236, 233, 238);</string>
+    </property>
+    <property name="text">
+     <string>Check Testing Data</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

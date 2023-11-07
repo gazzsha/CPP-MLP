@@ -35,15 +35,15 @@ public:
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_2;
-    QSpinBox *spinBox;
+    QSpinBox *epochs_count_box;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QLabel *label;
     QHBoxLayout *horizontalLayout;
     QRadioButton *radioButton;
-    QRadioButton *radioButton_3;
-    QRadioButton *radioButton_2;
-    QRadioButton *radioButton_4;
+    QRadioButton *count_3_hidden_layer;
+    QRadioButton *count_4_hidden_layer;
+    QRadioButton *count_5_hidden_layer;
     QWidget *horizontalLayoutWidget_3;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_3;
@@ -55,19 +55,22 @@ public:
     QLabel *label_5;
     QLabel *label_7;
     QLabel *label_4;
-    QLabel *label_9;
-    QLabel *label_10;
-    QLabel *label_11;
-    QLabel *label_12;
-    QLabel *label_13;
+    QLabel *accuracy_label;
+    QLabel *precision_label;
+    QLabel *recall_label;
+    QLabel *f_mera_label;
+    QLabel *time_label;
     QPushButton *pushLoad;
-    QPushButton *pushTraib;
+    QPushButton *push_train;
     QGraphicsView *graphicsView;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout_4;
     QPushButton *pushClear_3;
     QPushButton *pushPredict;
     QPushButton *pushClear;
+    QPushButton *push_training_data;
+    QPushButton *push_testing_data;
+    QPushButton *push_check_testing_data;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -159,13 +162,13 @@ public:
 
         horizontalLayout_2->addWidget(label_2);
 
-        spinBox = new QSpinBox(horizontalLayoutWidget_2);
-        spinBox->setObjectName(QString::fromUtf8("spinBox"));
+        epochs_count_box = new QSpinBox(horizontalLayoutWidget_2);
+        epochs_count_box->setObjectName(QString::fromUtf8("epochs_count_box"));
         QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(spinBox->sizePolicy().hasHeightForWidth());
-        spinBox->setSizePolicy(sizePolicy);
+        sizePolicy.setHeightForWidth(epochs_count_box->sizePolicy().hasHeightForWidth());
+        epochs_count_box->setSizePolicy(sizePolicy);
         QFont font2;
         font2.setPointSize(23);
         font2.setBold(true);
@@ -173,14 +176,14 @@ public:
         font2.setUnderline(false);
         font2.setStrikeOut(false);
         font2.setKerning(true);
-        spinBox->setFont(font2);
-        spinBox->setStyleSheet(QString::fromUtf8("\n"
+        epochs_count_box->setFont(font2);
+        epochs_count_box->setStyleSheet(QString::fromUtf8("\n"
 "    border-radius: 3px;\n"
 "color: white;"));
-        spinBox->setMinimum(1);
-        spinBox->setMaximum(5);
+        epochs_count_box->setMinimum(1);
+        epochs_count_box->setMaximum(5);
 
-        horizontalLayout_2->addWidget(spinBox);
+        horizontalLayout_2->addWidget(epochs_count_box);
 
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
@@ -208,32 +211,33 @@ public:
         radioButton->setFont(font3);
         radioButton->setLayoutDirection(Qt::LeftToRight);
         radioButton->setStyleSheet(QString::fromUtf8("color: white;"));
+        radioButton->setChecked(true);
 
         horizontalLayout->addWidget(radioButton);
 
-        radioButton_3 = new QRadioButton(verticalLayoutWidget);
-        radioButton_3->setObjectName(QString::fromUtf8("radioButton_3"));
-        radioButton_3->setFont(font3);
-        radioButton_3->setLayoutDirection(Qt::LeftToRight);
-        radioButton_3->setStyleSheet(QString::fromUtf8("color: white;"));
+        count_3_hidden_layer = new QRadioButton(verticalLayoutWidget);
+        count_3_hidden_layer->setObjectName(QString::fromUtf8("count_3_hidden_layer"));
+        count_3_hidden_layer->setFont(font3);
+        count_3_hidden_layer->setLayoutDirection(Qt::LeftToRight);
+        count_3_hidden_layer->setStyleSheet(QString::fromUtf8("color: white;"));
 
-        horizontalLayout->addWidget(radioButton_3);
+        horizontalLayout->addWidget(count_3_hidden_layer);
 
-        radioButton_2 = new QRadioButton(verticalLayoutWidget);
-        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
-        radioButton_2->setFont(font3);
-        radioButton_2->setLayoutDirection(Qt::LeftToRight);
-        radioButton_2->setStyleSheet(QString::fromUtf8("color: white;"));
+        count_4_hidden_layer = new QRadioButton(verticalLayoutWidget);
+        count_4_hidden_layer->setObjectName(QString::fromUtf8("count_4_hidden_layer"));
+        count_4_hidden_layer->setFont(font3);
+        count_4_hidden_layer->setLayoutDirection(Qt::LeftToRight);
+        count_4_hidden_layer->setStyleSheet(QString::fromUtf8("color: white;"));
 
-        horizontalLayout->addWidget(radioButton_2);
+        horizontalLayout->addWidget(count_4_hidden_layer);
 
-        radioButton_4 = new QRadioButton(verticalLayoutWidget);
-        radioButton_4->setObjectName(QString::fromUtf8("radioButton_4"));
-        radioButton_4->setFont(font3);
-        radioButton_4->setLayoutDirection(Qt::LeftToRight);
-        radioButton_4->setStyleSheet(QString::fromUtf8("color: white;"));
+        count_5_hidden_layer = new QRadioButton(verticalLayoutWidget);
+        count_5_hidden_layer->setObjectName(QString::fromUtf8("count_5_hidden_layer"));
+        count_5_hidden_layer->setFont(font3);
+        count_5_hidden_layer->setLayoutDirection(Qt::LeftToRight);
+        count_5_hidden_layer->setStyleSheet(QString::fromUtf8("color: white;"));
 
-        horizontalLayout->addWidget(radioButton_4);
+        horizontalLayout->addWidget(count_5_hidden_layer);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -257,6 +261,9 @@ public:
 
         letter_label = new QLabel(horizontalLayoutWidget_3);
         letter_label->setObjectName(QString::fromUtf8("letter_label"));
+        QFont font5;
+        font5.setPointSize(26);
+        letter_label->setFont(font5);
 
         horizontalLayout_3->addWidget(letter_label);
 
@@ -268,12 +275,12 @@ public:
         gridLayout->setContentsMargins(0, 0, 0, 0);
         label_6 = new QLabel(gridLayoutWidget);
         label_6->setObjectName(QString::fromUtf8("label_6"));
-        QFont font5;
-        font5.setFamilies({QString::fromUtf8("Charter")});
-        font5.setPointSize(23);
-        font5.setBold(true);
-        font5.setItalic(false);
-        label_6->setFont(font5);
+        QFont font6;
+        font6.setFamilies({QString::fromUtf8("Charter")});
+        font6.setPointSize(23);
+        font6.setBold(true);
+        font6.setItalic(false);
+        label_6->setFont(font6);
         label_6->setStyleSheet(QString::fromUtf8("color : white;"));
         label_6->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
@@ -281,7 +288,7 @@ public:
 
         label_8 = new QLabel(gridLayoutWidget);
         label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setFont(font5);
+        label_8->setFont(font6);
         label_8->setStyleSheet(QString::fromUtf8("color : white;"));
         label_8->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
@@ -289,7 +296,7 @@ public:
 
         label_5 = new QLabel(gridLayoutWidget);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setFont(font5);
+        label_5->setFont(font6);
         label_5->setStyleSheet(QString::fromUtf8("color : white;"));
         label_5->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
@@ -297,7 +304,7 @@ public:
 
         label_7 = new QLabel(gridLayoutWidget);
         label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setFont(font5);
+        label_7->setFont(font6);
         label_7->setStyleSheet(QString::fromUtf8("color : white;"));
         label_7->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
@@ -305,73 +312,73 @@ public:
 
         label_4 = new QLabel(gridLayoutWidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setFont(font5);
+        label_4->setFont(font6);
         label_4->setStyleSheet(QString::fromUtf8("color : white;"));
         label_4->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
         gridLayout->addWidget(label_4, 0, 0, 1, 1);
 
-        label_9 = new QLabel(gridLayoutWidget);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-        label_9->setFont(font5);
-        label_9->setStyleSheet(QString::fromUtf8("color : white;"));
-        label_9->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        accuracy_label = new QLabel(gridLayoutWidget);
+        accuracy_label->setObjectName(QString::fromUtf8("accuracy_label"));
+        accuracy_label->setFont(font6);
+        accuracy_label->setStyleSheet(QString::fromUtf8("color : white;"));
+        accuracy_label->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_9, 0, 1, 1, 1);
+        gridLayout->addWidget(accuracy_label, 0, 1, 1, 1);
 
-        label_10 = new QLabel(gridLayoutWidget);
-        label_10->setObjectName(QString::fromUtf8("label_10"));
-        label_10->setFont(font5);
-        label_10->setStyleSheet(QString::fromUtf8("color : white;"));
-        label_10->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        precision_label = new QLabel(gridLayoutWidget);
+        precision_label->setObjectName(QString::fromUtf8("precision_label"));
+        precision_label->setFont(font6);
+        precision_label->setStyleSheet(QString::fromUtf8("color : white;"));
+        precision_label->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_10, 1, 1, 1, 1);
+        gridLayout->addWidget(precision_label, 1, 1, 1, 1);
 
-        label_11 = new QLabel(gridLayoutWidget);
-        label_11->setObjectName(QString::fromUtf8("label_11"));
-        label_11->setFont(font5);
-        label_11->setStyleSheet(QString::fromUtf8("color : white;"));
-        label_11->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        recall_label = new QLabel(gridLayoutWidget);
+        recall_label->setObjectName(QString::fromUtf8("recall_label"));
+        recall_label->setFont(font6);
+        recall_label->setStyleSheet(QString::fromUtf8("color : white;"));
+        recall_label->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_11, 2, 1, 1, 1);
+        gridLayout->addWidget(recall_label, 2, 1, 1, 1);
 
-        label_12 = new QLabel(gridLayoutWidget);
-        label_12->setObjectName(QString::fromUtf8("label_12"));
-        label_12->setFont(font5);
-        label_12->setStyleSheet(QString::fromUtf8("color : white;"));
-        label_12->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        f_mera_label = new QLabel(gridLayoutWidget);
+        f_mera_label->setObjectName(QString::fromUtf8("f_mera_label"));
+        f_mera_label->setFont(font6);
+        f_mera_label->setStyleSheet(QString::fromUtf8("color : white;"));
+        f_mera_label->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_12, 3, 1, 1, 1);
+        gridLayout->addWidget(f_mera_label, 3, 1, 1, 1);
 
-        label_13 = new QLabel(gridLayoutWidget);
-        label_13->setObjectName(QString::fromUtf8("label_13"));
-        label_13->setFont(font5);
-        label_13->setStyleSheet(QString::fromUtf8("color : white;"));
-        label_13->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        time_label = new QLabel(gridLayoutWidget);
+        time_label->setObjectName(QString::fromUtf8("time_label"));
+        time_label->setFont(font6);
+        time_label->setStyleSheet(QString::fromUtf8("color : white;"));
+        time_label->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_13, 4, 1, 1, 1);
+        gridLayout->addWidget(time_label, 4, 1, 1, 1);
 
         pushLoad = new QPushButton(centralwidget);
         pushLoad->setObjectName(QString::fromUtf8("pushLoad"));
-        pushLoad->setGeometry(QRect(770, 50, 271, 21));
-        QFont font6;
-        font6.setFamilies({QString::fromUtf8("Ayuthaya")});
-        font6.setPointSize(15);
-        font6.setBold(false);
-        font6.setItalic(true);
-        pushLoad->setFont(font6);
-        pushLoad->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
-" background-color: rgb(236, 233, 238);"));
-        pushTraib = new QPushButton(centralwidget);
-        pushTraib->setObjectName(QString::fromUtf8("pushTraib"));
-        pushTraib->setGeometry(QRect(770, 80, 271, 21));
+        pushLoad->setGeometry(QRect(770, 70, 271, 21));
         QFont font7;
         font7.setFamilies({QString::fromUtf8("Ayuthaya")});
-        font7.setPointSize(17);
+        font7.setPointSize(15);
         font7.setBold(false);
         font7.setItalic(true);
-        pushTraib->setFont(font7);
-        pushTraib->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
+        pushLoad->setFont(font7);
+        pushLoad->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
+" background-color: rgb(236, 233, 238);"));
+        push_train = new QPushButton(centralwidget);
+        push_train->setObjectName(QString::fromUtf8("push_train"));
+        push_train->setGeometry(QRect(770, 130, 271, 21));
+        QFont font8;
+        font8.setFamilies({QString::fromUtf8("Ayuthaya")});
+        font8.setPointSize(17);
+        font8.setBold(false);
+        font8.setItalic(true);
+        push_train->setFont(font8);
+        push_train->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
 " background-color: rgb(236, 233, 238);"));
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
@@ -385,7 +392,7 @@ public:
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
         pushClear_3 = new QPushButton(horizontalLayoutWidget);
         pushClear_3->setObjectName(QString::fromUtf8("pushClear_3"));
-        pushClear_3->setFont(font7);
+        pushClear_3->setFont(font8);
         pushClear_3->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
 " background-color: rgb(236, 233, 238);"));
 
@@ -393,7 +400,7 @@ public:
 
         pushPredict = new QPushButton(horizontalLayoutWidget);
         pushPredict->setObjectName(QString::fromUtf8("pushPredict"));
-        pushPredict->setFont(font7);
+        pushPredict->setFont(font8);
         pushPredict->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
 " background-color: rgb(236, 233, 238);"));
 
@@ -401,12 +408,30 @@ public:
 
         pushClear = new QPushButton(horizontalLayoutWidget);
         pushClear->setObjectName(QString::fromUtf8("pushClear"));
-        pushClear->setFont(font7);
+        pushClear->setFont(font8);
         pushClear->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
 " background-color: rgb(236, 233, 238);"));
 
         horizontalLayout_4->addWidget(pushClear);
 
+        push_training_data = new QPushButton(centralwidget);
+        push_training_data->setObjectName(QString::fromUtf8("push_training_data"));
+        push_training_data->setGeometry(QRect(770, 40, 271, 21));
+        push_training_data->setFont(font7);
+        push_training_data->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
+" background-color: rgb(236, 233, 238);"));
+        push_testing_data = new QPushButton(centralwidget);
+        push_testing_data->setObjectName(QString::fromUtf8("push_testing_data"));
+        push_testing_data->setGeometry(QRect(770, 100, 271, 21));
+        push_testing_data->setFont(font8);
+        push_testing_data->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
+" background-color: rgb(236, 233, 238);"));
+        push_check_testing_data = new QPushButton(centralwidget);
+        push_check_testing_data->setObjectName(QString::fromUtf8("push_check_testing_data"));
+        push_check_testing_data->setGeometry(QRect(770, 160, 271, 21));
+        push_check_testing_data->setFont(font8);
+        push_check_testing_data->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
+" background-color: rgb(236, 233, 238);"));
         View->setCentralWidget(centralwidget);
         menubar = new QMenuBar(View);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -429,9 +454,9 @@ public:
         label_2->setText(QCoreApplication::translate("View", "Epochs", nullptr));
         label->setText(QCoreApplication::translate("View", "Number of Hidden Layers", nullptr));
         radioButton->setText(QCoreApplication::translate("View", "2", nullptr));
-        radioButton_3->setText(QCoreApplication::translate("View", "3", nullptr));
-        radioButton_2->setText(QCoreApplication::translate("View", "4", nullptr));
-        radioButton_4->setText(QCoreApplication::translate("View", "5", nullptr));
+        count_3_hidden_layer->setText(QCoreApplication::translate("View", "3", nullptr));
+        count_4_hidden_layer->setText(QCoreApplication::translate("View", "4", nullptr));
+        count_5_hidden_layer->setText(QCoreApplication::translate("View", "5", nullptr));
         label_3->setText(QCoreApplication::translate("View", "The letter is:", nullptr));
         letter_label->setText(QString());
         label_6->setText(QCoreApplication::translate("View", "Recall", nullptr));
@@ -439,16 +464,19 @@ public:
         label_5->setText(QCoreApplication::translate("View", "Precision", nullptr));
         label_7->setText(QCoreApplication::translate("View", "F-measure", nullptr));
         label_4->setText(QCoreApplication::translate("View", "Accuracy", nullptr));
-        label_9->setText(QCoreApplication::translate("View", "0.0", nullptr));
-        label_10->setText(QCoreApplication::translate("View", "0.0", nullptr));
-        label_11->setText(QCoreApplication::translate("View", "0.0", nullptr));
-        label_12->setText(QCoreApplication::translate("View", "0.0", nullptr));
-        label_13->setText(QCoreApplication::translate("View", "0.0", nullptr));
+        accuracy_label->setText(QCoreApplication::translate("View", "0.0", nullptr));
+        precision_label->setText(QCoreApplication::translate("View", "0.0", nullptr));
+        recall_label->setText(QCoreApplication::translate("View", "0.0", nullptr));
+        f_mera_label->setText(QCoreApplication::translate("View", "0.0", nullptr));
+        time_label->setText(QCoreApplication::translate("View", "0.0", nullptr));
         pushLoad->setText(QCoreApplication::translate("View", "Load BMP...", nullptr));
-        pushTraib->setText(QCoreApplication::translate("View", "Train", nullptr));
+        push_train->setText(QCoreApplication::translate("View", "Train", nullptr));
         pushClear_3->setText(QCoreApplication::translate("View", "Clear", nullptr));
         pushPredict->setText(QCoreApplication::translate("View", "Predict", nullptr));
         pushClear->setText(QCoreApplication::translate("View", "Clear", nullptr));
+        push_training_data->setText(QCoreApplication::translate("View", "Load Training Data...", nullptr));
+        push_testing_data->setText(QCoreApplication::translate("View", "Load Testing Data...", nullptr));
+        push_check_testing_data->setText(QCoreApplication::translate("View", "Check Testing Data", nullptr));
     } // retranslateUi
 
 };

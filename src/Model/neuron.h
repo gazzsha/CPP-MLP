@@ -3,11 +3,11 @@
 #define SIZE_END 26
 #include <cmath>
 #include <cstdlib>
-#include <iostream>
-#include <vector>
-#include <random>
 #include <fstream>
+#include <iostream>
+#include <random>
 #include <sstream>
+#include <vector>
 namespace s21 {
 
 class GraphNeuron {
@@ -28,7 +28,7 @@ class GraphNeuron {
   std::vector<GraphNeuron*> prev;
   std::vector<GraphNeuron*> next;
   std::vector<double> weights;
-  
+
  private:
   double value = 0;
   double error = 0;
@@ -46,16 +46,16 @@ class GraphLayer {
 
  private:
   std::vector<GraphNeuron> neurons;
-//  friend class GraphPreceptron;
+  //  friend class GraphPreceptron;
 };
 
 class GraphPreceptron {
  public:
   GraphPreceptron() = delete;
   GraphPreceptron(const GraphPreceptron&) = delete;
-  GraphPreceptron(const size_t& = 3,const size_t& = 768, const size_t& = 64,
+  GraphPreceptron(const size_t& = 3, const size_t& = 768, const size_t& = 128,
                   const size_t& = 26);
-//  void DirectPassage();
+  //  void DirectPassage();
   void Predict(const std::vector<double>&);
   void train(const std::vector<double>&, const std::vector<double>&,
              const double& = 0.15);
@@ -76,16 +76,16 @@ class GraphPreceptron {
   //                 << shadow_layers[i].neurons[j].weights.size() << "\n";
   //     std::cout << "========\n";
   //   }
-    // std::cout << shadow_layers[0].neurons[0].value;
-    // for (auto v : shadow_layers[0].get_neurons()[0])
-    //   std::cout << v.value << " ";
-    // auto s = enter_layer.get_neurons()[0].next[0];
-    // s = s->prev[1];
-    // std::cout << s->get_value();
-    //  auto v = shadow_layers[0].get_neurons()[0].prev;
-    //  for (int i = 0; i < v.size(); i++) {
-    //   std::cout << v[i] << "\n";
-    //  }
+  // std::cout << shadow_layers[0].neurons[0].value;
+  // for (auto v : shadow_layers[0].get_neurons()[0])
+  //   std::cout << v.value << " ";
+  // auto s = enter_layer.get_neurons()[0].next[0];
+  // s = s->prev[1];
+  // std::cout << s->get_value();
+  //  auto v = shadow_layers[0].get_neurons()[0].prev;
+  //  for (int i = 0; i < v.size(); i++) {
+  //   std::cout << v[i] << "\n";
+  //  }
   // }
   // void paint() {
   //   for (auto i = 0; i < enter_layer.get_neurons().size(); ++i) {
@@ -118,7 +118,7 @@ class GraphPreceptron {
   void InitializingFirstLayer();
   void InitializingShadowLayer();
   void InitializingOutputLayer();
-  GraphNeuron * BeginOutputLayer() noexcept;
+  GraphNeuron* BeginOutputLayer() noexcept;
 };
 
 }  // namespace s21

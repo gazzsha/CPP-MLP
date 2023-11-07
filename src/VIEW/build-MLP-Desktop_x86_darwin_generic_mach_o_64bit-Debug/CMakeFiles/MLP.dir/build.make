@@ -125,12 +125,72 @@ CMakeFiles/MLP.dir/paintscene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MLP.dir/paintscene.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/paintscene.cpp -o CMakeFiles/MLP.dir/paintscene.cpp.s
 
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.o: CMakeFiles/MLP.dir/flags.make
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.o: /Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.o: CMakeFiles/MLP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/antoinco/CPP7_MLP-1/src/VIEW/build-MLP-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.o -MF CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.o.d -o CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.o -c /Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp
+
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp > CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.i
+
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp -o CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.s
+
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.o: CMakeFiles/MLP.dir/flags.make
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.o: /Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.o: CMakeFiles/MLP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/antoinco/CPP7_MLP-1/src/VIEW/build-MLP-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.o -MF CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.o.d -o CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.o -c /Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp
+
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp > CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.i
+
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp -o CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.s
+
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.o: CMakeFiles/MLP.dir/flags.make
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.o: /Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.o: CMakeFiles/MLP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/antoinco/CPP7_MLP-1/src/VIEW/build-MLP-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.o -MF CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.o.d -o CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.o -c /Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp
+
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp > CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.i
+
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp -o CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.s
+
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.o: CMakeFiles/MLP.dir/flags.make
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.o: /Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.o: CMakeFiles/MLP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/antoinco/CPP7_MLP-1/src/VIEW/build-MLP-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.o -MF CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.o.d -o CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.o -c /Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp
+
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp > CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.i
+
+CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp -o CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.s
+
 # Object files for target MLP
 MLP_OBJECTS = \
 "CMakeFiles/MLP.dir/MLP_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/MLP.dir/main.cpp.o" \
 "CMakeFiles/MLP.dir/view.cpp.o" \
-"CMakeFiles/MLP.dir/paintscene.cpp.o"
+"CMakeFiles/MLP.dir/paintscene.cpp.o" \
+"CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.o" \
+"CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.o" \
+"CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.o" \
+"CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.o"
 
 # External object files for target MLP
 MLP_EXTERNAL_OBJECTS =
@@ -139,12 +199,16 @@ MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/MLP_autogen/mocs_compilation.cpp.
 MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/main.cpp.o
 MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/view.cpp.o
 MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/paintscene.cpp.o
+MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.o
+MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp.o
+MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.o
+MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.o
 MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/build.make
 MLP.app/Contents/MacOS/MLP: /usr/local/lib/QtWidgets.framework/Versions/A/QtWidgets
 MLP.app/Contents/MacOS/MLP: /usr/local/lib/QtGui.framework/Versions/A/QtGui
 MLP.app/Contents/MacOS/MLP: /usr/local/lib/QtCore.framework/Versions/A/QtCore
 MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/antoinco/CPP7_MLP-1/src/VIEW/build-MLP-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable MLP.app/Contents/MacOS/MLP"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/antoinco/CPP7_MLP-1/src/VIEW/build-MLP-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable MLP.app/Contents/MacOS/MLP"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MLP.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

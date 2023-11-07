@@ -21,6 +21,15 @@ set(PROJECT_SOURCES
         view.ui
         paintscene.cpp
         paintscene.h
+        ../../Controller/Controller.cpp
+        ../../Controller/Controller.h
+        ../../Model/Model.cpp
+        ../../Model/Model.h
+        ../../Model/neuron.cpp
+        ../../Model/neuron.h
+        ../../Model/Input.cpp
+        ../../Model/Input.h
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
