@@ -204,9 +204,12 @@ MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Mod
 MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp.o
 MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.o
 MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/build.make
+MLP.app/Contents/MacOS/MLP: /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/build/output/amd64/Debug/lib/libqcustomplot.2.1.1.1.dylib
+MLP.app/Contents/MacOS/MLP: /usr/local/lib/QtPrintSupport.framework/Versions/A/QtPrintSupport
 MLP.app/Contents/MacOS/MLP: /usr/local/lib/QtWidgets.framework/Versions/A/QtWidgets
 MLP.app/Contents/MacOS/MLP: /usr/local/lib/QtGui.framework/Versions/A/QtGui
 MLP.app/Contents/MacOS/MLP: /usr/local/lib/QtCore.framework/Versions/A/QtCore
+MLP.app/Contents/MacOS/MLP: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/lib/libcups.tbd
 MLP.app/Contents/MacOS/MLP: CMakeFiles/MLP.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/antoinco/CPP7_MLP-1/src/VIEW/build-MLP-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable MLP.app/Contents/MacOS/MLP"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MLP.dir/link.txt --verbose=$(VERBOSE)

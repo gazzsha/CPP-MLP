@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1668</width>
-    <height>856</height>
+    <width>1688</width>
+    <height>885</height>
    </rect>
   </property>
   <property name="font">
@@ -226,7 +226,7 @@ color: white;</string>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QRadioButton" name="radioButton">
+        <widget class="QRadioButton" name="count_2_hidden_layer">
          <property name="font">
           <font>
            <family>Charter</family>
@@ -780,7 +780,7 @@ color: white;</string>
     <property name="geometry">
      <rect>
       <x>770</x>
-      <y>160</y>
+      <y>190</y>
       <width>271</width>
       <height>21</height>
      </rect>
@@ -805,7 +805,7 @@ color: white;</string>
     <property name="geometry">
      <rect>
       <x>770</x>
-      <y>190</y>
+      <y>220</y>
       <width>271</width>
       <height>21</height>
      </rect>
@@ -830,7 +830,7 @@ color: white;</string>
     <property name="geometry">
      <rect>
       <x>770</x>
-      <y>220</y>
+      <y>250</y>
       <width>271</width>
       <height>21</height>
      </rect>
@@ -856,7 +856,7 @@ color: white;</string>
      <rect>
       <x>770</x>
       <y>450</y>
-      <width>271</width>
+      <width>278</width>
       <height>60</height>
      </rect>
     </property>
@@ -917,37 +917,40 @@ color: white;</string>
      </item>
     </layout>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QPushButton" name="push_train_online">
     <property name="geometry">
      <rect>
-      <x>1070</x>
-      <y>40</y>
-      <width>521</width>
-      <height>401</height>
+      <x>770</x>
+      <y>160</y>
+      <width>271</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Arial Narrow</family>
-      <pointsize>30</pointsize>
-      <bold>true</bold>
+      <family>Ayuthaya</family>
+      <pointsize>17</pointsize>
+      <italic>true</italic>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:  white;</string>
+     <string notr="true">border-radius: 10px;
+ background-color: rgb(85, 24, 98)</string>
     </property>
-    <property name="gridStyle">
-     <enum>Qt::DashLine</enum>
+    <property name="text">
+     <string>Train Online</string>
     </property>
-    <property name="columnCount">
-     <number>6</number>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>40</y>
+      <width>601</width>
+      <height>111</height>
+     </rect>
     </property>
-    <attribute name="horizontalHeaderMinimumSectionSize">
-     <number>10</number>
-    </attribute>
-    <attribute name="horizontalHeaderDefaultSectionSize">
-     <number>100</number>
-    </attribute>
     <column>
      <property name="text">
       <string>№</string>
@@ -955,12 +958,12 @@ color: white;</string>
     </column>
     <column>
      <property name="text">
-      <string>Accurancy</string>
+      <string>New Column</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Precision</string>
+      <string>Accurancy</string>
      </property>
     </column>
     <column>
@@ -979,19 +982,37 @@ color: white;</string>
      </property>
     </column>
    </widget>
+   <widget class="QCustomPlot" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>380</y>
+      <width>601</width>
+      <height>421</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1668</width>
+     <width>1688</width>
      <height>24</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

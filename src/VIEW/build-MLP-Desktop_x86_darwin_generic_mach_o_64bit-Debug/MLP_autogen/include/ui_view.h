@@ -26,7 +26,7 @@
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
-
+#include "qcustomplot.h"
 QT_BEGIN_NAMESPACE
 
 class Ui_View
@@ -43,7 +43,7 @@ public:
     QVBoxLayout *verticalLayout;
     QLabel *label;
     QHBoxLayout *horizontalLayout;
-    QRadioButton *radioButton;
+    QRadioButton *count_2_hidden_layer;
     QRadioButton *count_3_hidden_layer;
     QRadioButton *count_4_hidden_layer;
     QRadioButton *count_5_hidden_layer;
@@ -80,7 +80,9 @@ public:
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_9;
     QDoubleSpinBox *shape_box;
+    QPushButton *push_train_online;
     QTableWidget *tableWidget;
+    QCustomPlot *widget;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -88,7 +90,7 @@ public:
     {
         if (View->objectName().isEmpty())
             View->setObjectName(QString::fromUtf8("View"));
-        View->resize(1668, 856);
+        View->resize(1688, 885);
         QFont font;
         font.setPointSize(30);
         View->setFont(font);
@@ -216,19 +218,19 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        radioButton = new QRadioButton(verticalLayoutWidget);
-        radioButton->setObjectName(QString::fromUtf8("radioButton"));
+        count_2_hidden_layer = new QRadioButton(verticalLayoutWidget);
+        count_2_hidden_layer->setObjectName(QString::fromUtf8("count_2_hidden_layer"));
         QFont font4;
         font4.setFamilies({QString::fromUtf8("Charter")});
         font4.setPointSize(20);
         font4.setBold(true);
         font4.setItalic(true);
-        radioButton->setFont(font4);
-        radioButton->setLayoutDirection(Qt::LeftToRight);
-        radioButton->setStyleSheet(QString::fromUtf8("color: white;"));
-        radioButton->setChecked(false);
+        count_2_hidden_layer->setFont(font4);
+        count_2_hidden_layer->setLayoutDirection(Qt::LeftToRight);
+        count_2_hidden_layer->setStyleSheet(QString::fromUtf8("color: white;"));
+        count_2_hidden_layer->setChecked(false);
 
-        horizontalLayout->addWidget(radioButton);
+        horizontalLayout->addWidget(count_2_hidden_layer);
 
         count_3_hidden_layer = new QRadioButton(verticalLayoutWidget);
         count_3_hidden_layer->setObjectName(QString::fromUtf8("count_3_hidden_layer"));
@@ -252,6 +254,7 @@ public:
         count_5_hidden_layer->setFont(font4);
         count_5_hidden_layer->setLayoutDirection(Qt::LeftToRight);
         count_5_hidden_layer->setStyleSheet(QString::fromUtf8("color: white;"));
+        count_5_hidden_layer->setChecked(false);
 
         horizontalLayout->addWidget(count_5_hidden_layer);
 
@@ -389,7 +392,7 @@ public:
         font8.setItalic(true);
         push_load_bmp->setFont(font8);
         push_load_bmp->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
-" background-color: rgb(236, 233, 238);"));
+" background-color: rgb(85, 24, 98)"));
         push_train = new QPushButton(centralwidget);
         push_train->setObjectName(QString::fromUtf8("push_train"));
         push_train->setGeometry(QRect(770, 130, 271, 21));
@@ -400,7 +403,7 @@ public:
         font9.setItalic(true);
         push_train->setFont(font9);
         push_train->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
-" background-color: rgb(236, 233, 238);"));
+" background-color: rgb(85, 24, 98)"));
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName(QString::fromUtf8("graphicsView"));
         graphicsView->setGeometry(QRect(20, 50, 741, 711));
@@ -415,7 +418,7 @@ public:
         push_predict_bmp->setObjectName(QString::fromUtf8("push_predict_bmp"));
         push_predict_bmp->setFont(font9);
         push_predict_bmp->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
-" background-color: rgb(236, 233, 238);"));
+" background-color: rgb(85, 24, 98);"));
 
         horizontalLayout_4->addWidget(push_predict_bmp);
 
@@ -423,7 +426,7 @@ public:
         pushPredict->setObjectName(QString::fromUtf8("pushPredict"));
         pushPredict->setFont(font9);
         pushPredict->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
-" background-color: rgb(236, 233, 238);"));
+" background-color:rgb(85, 24, 98)"));
 
         horizontalLayout_4->addWidget(pushPredict);
 
@@ -431,7 +434,7 @@ public:
         pushClear->setObjectName(QString::fromUtf8("pushClear"));
         pushClear->setFont(font9);
         pushClear->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
-" background-color: rgb(236, 233, 238);"));
+" background-color: rgb(85, 24, 98);"));
 
         horizontalLayout_4->addWidget(pushClear);
 
@@ -440,31 +443,31 @@ public:
         push_training_data->setGeometry(QRect(770, 40, 271, 21));
         push_training_data->setFont(font8);
         push_training_data->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
-" background-color: rgb(236, 233, 238);"));
+" background-color: rgb(85, 24, 98)"));
         push_testing_data = new QPushButton(centralwidget);
         push_testing_data->setObjectName(QString::fromUtf8("push_testing_data"));
         push_testing_data->setGeometry(QRect(770, 100, 271, 21));
         push_testing_data->setFont(font9);
         push_testing_data->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
-" background-color: rgb(236, 233, 238);"));
+" background-color: rgb(85, 24, 98)"));
         push_check_testing_data = new QPushButton(centralwidget);
         push_check_testing_data->setObjectName(QString::fromUtf8("push_check_testing_data"));
-        push_check_testing_data->setGeometry(QRect(770, 160, 271, 21));
+        push_check_testing_data->setGeometry(QRect(770, 190, 271, 21));
         push_check_testing_data->setFont(font9);
         push_check_testing_data->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
-" background-color: rgb(236, 233, 238);"));
+" background-color: rgb(85, 24, 98)"));
         push_load_weights = new QPushButton(centralwidget);
         push_load_weights->setObjectName(QString::fromUtf8("push_load_weights"));
-        push_load_weights->setGeometry(QRect(770, 190, 271, 21));
+        push_load_weights->setGeometry(QRect(770, 220, 271, 21));
         push_load_weights->setFont(font9);
         push_load_weights->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
-" background-color: rgb(236, 233, 238);"));
+" background-color: rgb(85, 24, 98)"));
         push_save_weights = new QPushButton(centralwidget);
         push_save_weights->setObjectName(QString::fromUtf8("push_save_weights"));
-        push_save_weights->setGeometry(QRect(770, 220, 271, 21));
+        push_save_weights->setGeometry(QRect(770, 250, 271, 21));
         push_save_weights->setFont(font9);
         push_save_weights->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
-" background-color: rgb(236, 233, 238);"));
+" background-color: rgb(85, 24, 98)"));
         horizontalLayoutWidget_4 = new QWidget(centralwidget);
         horizontalLayoutWidget_4->setObjectName(QString::fromUtf8("horizontalLayoutWidget_4"));
         horizontalLayoutWidget_4->setGeometry(QRect(770, 450, 278, 60));
@@ -500,6 +503,12 @@ public:
 
         horizontalLayout_5->addWidget(shape_box);
 
+        push_train_online = new QPushButton(centralwidget);
+        push_train_online->setObjectName(QString::fromUtf8("push_train_online"));
+        push_train_online->setGeometry(QRect(770, 160, 271, 21));
+        push_train_online->setFont(font9);
+        push_train_online->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
+" background-color: rgb(85, 24, 98)"));
         tableWidget = new QTableWidget(centralwidget);
         if (tableWidget->columnCount() < 6)
             tableWidget->setColumnCount(6);
@@ -516,21 +525,14 @@ public:
         QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
-        tableWidget->setGeometry(QRect(1070, 40, 521, 401));
-        QFont font11;
-        font11.setFamilies({QString::fromUtf8("Arial Narrow")});
-        font11.setPointSize(30);
-        font11.setBold(true);
-        tableWidget->setFont(font11);
-        tableWidget->setStyleSheet(QString::fromUtf8("color:  white;"));
-        tableWidget->setGridStyle(Qt::DashLine);
-        tableWidget->setColumnCount(6);
-        tableWidget->horizontalHeader()->setMinimumSectionSize(10);
-        tableWidget->horizontalHeader()->setDefaultSectionSize(100);
+        tableWidget->setGeometry(QRect(1050, 40, 601, 111));
+        widget = new QCustomPlot(centralwidget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(1050, 380, 601, 421));
         View->setCentralWidget(centralwidget);
         menubar = new QMenuBar(View);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1668, 24));
+        menubar->setGeometry(QRect(0, 0, 1688, 24));
         View->setMenuBar(menubar);
         statusbar = new QStatusBar(View);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -548,7 +550,7 @@ public:
         MatrixRadio->setText(QCoreApplication::translate("View", "Matrix", nullptr));
         label_2->setText(QCoreApplication::translate("View", "Epochs", nullptr));
         label->setText(QCoreApplication::translate("View", "Number of Hidden Layers", nullptr));
-        radioButton->setText(QCoreApplication::translate("View", "2", nullptr));
+        count_2_hidden_layer->setText(QCoreApplication::translate("View", "2", nullptr));
         count_3_hidden_layer->setText(QCoreApplication::translate("View", "3", nullptr));
         count_4_hidden_layer->setText(QCoreApplication::translate("View", "4", nullptr));
         count_5_hidden_layer->setText(QCoreApplication::translate("View", "5", nullptr));
@@ -575,12 +577,13 @@ public:
         push_load_weights->setText(QCoreApplication::translate("View", "Load weights", nullptr));
         push_save_weights->setText(QCoreApplication::translate("View", "Save weights", nullptr));
         label_9->setText(QCoreApplication::translate("View", "Part of Training", nullptr));
+        push_train_online->setText(QCoreApplication::translate("View", "Train Online", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("View", "\342\204\226", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("View", "Accurancy", nullptr));
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("View", "New Column", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("View", "Precision", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("View", "Accurancy", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QCoreApplication::translate("View", "Recall", nullptr));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);

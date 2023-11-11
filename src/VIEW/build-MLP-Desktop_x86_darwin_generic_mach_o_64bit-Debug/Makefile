@@ -142,6 +142,32 @@ MLP_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MLP_autogen.dir/build.make CMakeFiles/MLP_autogen.dir/build
 .PHONY : MLP_autogen/fast
 
+#=============================================================================
+# Target rules for targets named qcustomplot
+
+# Build rule for target.
+qcustomplot: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 qcustomplot
+.PHONY : qcustomplot
+
+# fast build rule for target.
+qcustomplot/fast:
+	$(MAKE) $(MAKESILENT) -f QCustomPlot-library/lib/CMakeFiles/qcustomplot.dir/build.make QCustomPlot-library/lib/CMakeFiles/qcustomplot.dir/build
+.PHONY : qcustomplot/fast
+
+#=============================================================================
+# Target rules for targets named qcustomplot_autogen
+
+# Build rule for target.
+qcustomplot_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 qcustomplot_autogen
+.PHONY : qcustomplot_autogen
+
+# fast build rule for target.
+qcustomplot_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f QCustomPlot-library/lib/CMakeFiles/qcustomplot_autogen.dir/build.make QCustomPlot-library/lib/CMakeFiles/qcustomplot_autogen.dir/build
+.PHONY : qcustomplot_autogen/fast
+
 MLP_autogen/mocs_compilation.o: MLP_autogen/mocs_compilation.cpp.o
 .PHONY : MLP_autogen/mocs_compilation.o
 
@@ -343,7 +369,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MLP_autogen"
+	@echo "... qcustomplot_autogen"
 	@echo "... MLP"
+	@echo "... qcustomplot"
 	@echo "... MLP_autogen/mocs_compilation.o"
 	@echo "... MLP_autogen/mocs_compilation.i"
 	@echo "... MLP_autogen/mocs_compilation.s"

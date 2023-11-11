@@ -3,17 +3,30 @@
 namespace s21 {
 Model::Model()
     : graph_network(new GraphPreceptron(count_hidden_layers)),
-      input(),
+      input_train(),
+      input_test(),
       time() {}
 void Model::train_graph_network() {
   start = std::chrono::steady_clock::now();
-  input.GetData();
+  input_train.GetData();
   for (size_t i = 0; i < epochs; ++i) {
-    for (size_t j = 0; j < input.all_neurons_tests_.size(); ++j) {
-      graph_network->train(input.all_neurons_tests_[j], input.answer[j]);
+    for (size_t j = 0; j < input_train.all_neurons_tests_.size(); ++j) {
+      graph_network->train(input_train.all_neurons_tests_[j],
+                           input_train.answer[j]);
     }
   }
 }
+
+void Model::TrainWithoutEpochs() {
+  start = std::chrono::steady_clock::now();
+  input_train.GetData();
+  for (size_t j = 0; j < input_train.all_neurons_tests_.size(); ++j) {
+    graph_network->train(input_train.all_neurons_tests_[j],
+                         input_train.answer[j]);
+  }
+}
+
+size_t Model::get_epochs() const noexcept { return epochs; }
 void Model::set_training_sample_share(const double& val) noexcept {
   training_sample_share = val;
 }
@@ -29,31 +42,35 @@ void Model::set_count_hidden_layer(const size_t& val) {
   graph_network = new_network;
   delete cur;
 }
-void Model::set_path_file(const std::string& path_file) {
-  input.file_path = path_file;
+void Model::set_path_file_test(const std::string& path_file) {
+  input_test.file_path = path_file;
+}
+void Model::set_path_file_train(const std::string& path_file) {
+  input_train.file_path = path_file;
 }
 double Model::get_time() const noexcept { return time.count(); }
 void Model::test_graph_network() {
-  input.GetData();
+  input_test.GetData();
   size_t count_of_true = 0;
   size_t count_of_all = 0;
   size_t true_positiv = 0;
   size_t true_negative = 0;
   size_t false_positive = 0;
   size_t false_negative = 0;
-  for (size_t j = 0; j < static_cast<size_t>(input.all_neurons_tests_.size() *
-                                             training_sample_share);
+  for (size_t j = 0;
+       j < static_cast<size_t>(input_test.all_neurons_tests_.size() *
+                               training_sample_share);
        ++j) {
-    graph_network->Predict(input.all_neurons_tests_[j]);
+    graph_network->Predict(input_test.all_neurons_tests_[j]);
     vector_ result = graph_network->get_output_vector();
-    if (is_right_letter(result, input.answer[j])) count_of_true++;
+    if (is_right_letter(result, input_test.answer[j])) count_of_true++;
     count_of_all += count_of_true_result(result);
-    collection_data_of_metrics(result, input.answer[j], true_positiv,
+    collection_data_of_metrics(result, input_test.answer[j], true_positiv,
                                true_negative, false_positive, false_negative);
   }
 
   double accuracy = static_cast<double>(count_of_true) /
-                    static_cast<double>(input.answer.size());
+                    static_cast<double>(input_test.answer.size());
   average_accuracy = (static_cast<double>(true_positiv + true_negative)) /
                      (static_cast<double>(true_positiv + true_negative +
                                           false_positive + false_negative));
@@ -66,16 +83,21 @@ void Model::test_graph_network() {
   f_measure = 2 * (recall * precision) / (recall + precision);
   const auto end{std::chrono::steady_clock::now()};
   time = end - start;
+  average_accuracy_vec.push_back(average_accuracy);
+  precision_vec.push_back(precision);
+  recall_vec.push_back(recall);
+  f_measure_vec.push_back(f_measure);
+  time_vec.push_back(time.count());
 
-  std::cout << "True: " << count_of_true << "\n"
-            << "All: " << input.answer.size() << "\n"
-            << "average_accuracy: " << accuracy << "\n"
-            << "All > 0.5: " << count_of_all << "\n"
-            << "Acuracy" << average_accuracy << "\n"
-            << "Precision " << precision << "\n"
-            << "Recall " << recall << "\n"
-            << "F - mera " << f_measure << "\n"
-            << "Time: " << time.count() << "\n";
+  // std::cout << "True: " << count_of_true << "\n"
+  //           << "All: " << input_test.answer.size() << "\n"
+  //           << "average_accuracy: " << accuracy << "\n"
+  //           << "All > 0.5: " << count_of_all << "\n"
+  //           << "Acuracy" << average_accuracy << "\n"
+  //           << "Precision " << precision << "\n"
+  //           << "Recall " << recall << "\n"
+  //           << "F - mera " << f_measure << "\n"
+  //           << "Time: " << time.count() << "\n";
 }
 
 void Model::collection_data_of_metrics(const vector_& result,
@@ -137,4 +159,13 @@ char Model::predict_letter(const vector_& input) const noexcept {
   auto index = it - res.begin();
   return index + 65;
 }
+
+vector_ Model::get_average_accuracy_vec() const noexcept {
+  return average_accuracy_vec;
+}
+vector_ Model::get_precision_vec() const noexcept { return precision_vec; }
+vector_ Model::get_recall_vec() const noexcept { return recall_vec; }
+vector_ Model::get_f_measure_vec() const noexcept { return f_measure_vec; }
+vector_ Model::get_time_vec() const noexcept { return time_vec; }
+
 }  // namespace s21

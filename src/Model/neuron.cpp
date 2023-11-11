@@ -306,10 +306,10 @@ void GraphPreceptron::read_from_file_weights(const std::string& path) {
     }
     cur = cur->next[0];
   }
-  if (istrm.bad()) {
-    throw std::runtime_error("I/O error while reading - badbit is true");
-  } else if (istrm.fail())
-    throw std::runtime_error("Failbit is true");
+  // if (istrm.bad()) {
+  //   throw std::runtime_error("I/O error while reading - badbit is true");
+  // } else if (istrm.fail())
+  //   throw std::runtime_error("Failbit is true");
 }
 
 }  // namespace s21

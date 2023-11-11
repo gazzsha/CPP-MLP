@@ -64,33 +64,33 @@ int main() {
   //  //gp.paint();
   s21::Model model;
   // model.set_count_hidden_layer(1);
-  model.set_path_file("../emnist-letters-train.csv");
-  model.train_graph_network();
-  model.set_path_file("../emnist-letters-test.csv");
-  model.test_graph_network();
+  // model.set_path_file("../emnist-letters-train.csv");
+  // model.train_graph_network();
+  // model.set_path_file("../emnist-letters-test.csv");
+  // model.test_graph_network();
   //     model.set_count_hidden_layer(2);
   //      model.set_path_file("../emnist-letters-train.csv");
   // model.train_graph_network();
   // model.set_path_file("../emnist-letters-test.csv");
   //   model.test_graph_network();
 
-  model.write_to_file_weights("128_neurons_5_hidden_layer_4_epochs");
-  // std::ifstream istrm("../out.txt");
-  // std::vector<double> in;
-  // if (!istrm.is_open()) throw std::runtime_error("Failed to open file");
-  // for (auto i = 0; i < 28; i++) {
-  //   for (auto j = 0; j < 28; j++) {
-  //     double val;
-  //     istrm >> val;
-  //     std::cout << std::setw(5) << val;
-  //     in.push_back(val / 255.0f);
-  //   }
-  //   std::cout << "\n";
-  // }
-  // model.read_from_file_weights("weights.txt");
-  // model.set_path_file("../out.txt");
-  // std::vector<double> res = model.predict_graph_network(in);
-  // std::cout << model.predict_letter();
+  // model.write_to_file_weights("128_neurons_5_hidden_layer_4_epochs");
+  std::ifstream istrm("../out.txt");
+  std::vector<double> in;
+  if (!istrm.is_open()) throw std::runtime_error("Failed to open file");
+  for (auto i = 0; i < 28; i++) {
+    for (auto j = 0; j < 28; j++) {
+      double val;
+      istrm >> val;
+      std::cout << std::setw(5) << val;
+      in.push_back(val / 255.0f);
+    }
+    std::cout << "\n";
+  }
+  model.read_from_file_weights("weights.txt");
+  model.set_path_file_test("../out.txt");
+  std::vector<double> res = model.predict_graph_network(in);
+  std::cout << model.predict_letter(res);
   // std::vector<char> symbols;
   //     for (auto it = 'a'; it <= 'z'; ++it) {
   //         symbols.push_back(it);

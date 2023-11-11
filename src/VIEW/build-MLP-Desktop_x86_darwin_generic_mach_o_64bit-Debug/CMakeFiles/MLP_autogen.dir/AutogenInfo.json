@@ -330,7 +330,14 @@
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/Users/antoinco/CPP7_MLP-1/src/VIEW/build-MLP-Desktop_x86_darwin_generic_mach_o_64bit-Debug/MLP_autogen/include",
 	"MOC_COMPILATION_FILE" : "/Users/antoinco/CPP7_MLP-1/src/VIEW/build-MLP-Desktop_x86_darwin_generic_mach_o_64bit-Debug/MLP_autogen/mocs_compilation.cpp",
-	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB" ],
+	"MOC_DEFINITIONS" : 
+	[
+		"QCUSTOMPLOT_USE_LIBRARY",
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_PRINTSUPPORT_LIB",
+		"QT_WIDGETS_LIB"
+	],
 	"MOC_DEPEND_FILTERS" : 
 	[
 		[
@@ -342,6 +349,7 @@
 	[
 		"/Users/antoinco/CPP7_MLP-1/src/VIEW/build-MLP-Desktop_x86_darwin_generic_mach_o_64bit-Debug",
 		"/Users/antoinco/CPP7_MLP-1/src/VIEW/MLP",
+		"/Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/QCustomPlot-library/lib",
 		"/usr/local/lib/QtCore.framework",
 		"/usr/local/lib/QtCore.framework/Headers",
 		"/usr/local/share/qt/mkspecs/macx-clang",
@@ -350,9 +358,11 @@
 		"/usr/local/lib/QtWidgets.framework/Headers",
 		"/usr/local/lib/QtGui.framework",
 		"/usr/local/lib/QtGui.framework/Headers",
+		"/usr/local/lib/QtPrintSupport.framework",
+		"/usr/local/lib/QtPrintSupport.framework/Headers",
+		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include",
 		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1",
 		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include",
-		"/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include",
 		"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"
 	],
 	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],

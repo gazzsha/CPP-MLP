@@ -14,6 +14,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
+add_subdirectory(QCustomPlot-library)
+
 set(PROJECT_SOURCES
         main.cpp
         view.cpp
@@ -56,6 +58,9 @@ else()
 endif()
 
 target_link_libraries(MLP PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
+target_link_libraries(MLP PRIVATE qcustomplot)
+target_compile_definitions(MLP PRIVATE QCUSTOMPLOT_USE_LIBRARY)
 
 set_target_properties(MLP PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com

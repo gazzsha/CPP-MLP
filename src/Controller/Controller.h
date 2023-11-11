@@ -7,12 +7,14 @@ class Controller {
  public:
   Controller() = delete;
   Controller(Model* model_);
-  void set_path_file(const std::string& file_path);
-  void write_to_file_weights_graph(const std::string&);
-  void load_from_file_weights_graph(const std::string&);
+  void set_path_file_train(const std::string& file_path);
+  void set_path_file_test(const std::string& file_path);
+  void WriteToFileWeights(const std::string&);
+  void LoadFromFileWeights(const std::string&);
   void set_traininh_sample_share(const double& shape) noexcept;
-  void train_graph_network();
-  void test_graph_network();
+  void TrainGraphNetwork();
+  void TrainWithoutEpochsGraphNetwork();
+  void TestGraphNetwork();
   vector_ predict_graph_network(vector_ data);
   double get_average_accuracy() const noexcept;
   double get_precision() const noexcept;
@@ -21,7 +23,14 @@ class Controller {
   double get_time() const noexcept;
   void set_epochs(const size_t& val) noexcept;
   void set_hidden_layers(const size_t&);
-  char predict_letter(const vector_&) const noexcept;
+  char PredictLetter(const vector_&) const noexcept;
+  vector_ get_average_accuracy_vec() const noexcept;
+  vector_ get_precision_vec() const noexcept;
+  vector_ get_recall_vec() const noexcept;
+  vector_ get_f_measure_vec() const noexcept;
+  vector_ get_time_vec() const noexcept;
+
+  size_t get_epochs() const noexcept;
 
  private:
   Model* model;

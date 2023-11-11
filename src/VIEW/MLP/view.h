@@ -50,6 +50,10 @@ private slots:
 
     void on_push_load_bmp_clicked();
 
+    void on_push_train_online_clicked();
+
+    void on_count_2_hidden_layer_clicked();
+
 private:
     Ui::View *ui;
     PaintScene * scene;
