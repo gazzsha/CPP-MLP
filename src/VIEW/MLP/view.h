@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QGraphicsView>
+#include <QMessageBox>
 #include "paintscene.h"
 #include "../../Controller/Controller.h"
 QT_BEGIN_NAMESPACE

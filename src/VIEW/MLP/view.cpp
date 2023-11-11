@@ -2,6 +2,8 @@
 #include "./ui_view.h"
 #include <QDebug>
 #include <QTransform>
+#include <QFile>
+#include <QTextStream>
 View::View(s21::Controller * controller_,QWidget *parent)
     : controller(controller_),
       QMainWindow(parent),
@@ -37,30 +39,38 @@ void View::on_pushClear_clicked()
 void View::on_pushPredict_clicked()
 {
     QImage image(scene->width(), scene->height(), QImage::Format_ARGB32_Premultiplied);
-    image.fill(NULL);
+    image.fill(0);
     QPainter painter(&image);
     scene->render(&painter);
     QImage image_scaled = image.scaled(28,28,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
     QTransform transform;
     transform.rotate(90);
     image_scaled = image_scaled.transformed(transform);
-    QImage mirIm = image_scaled.mirrored(true,false);
-    mirIm.save("/Users/antoinco/CPP7_MLP-1/src/Image.jpg");
+    image_scaled = image_scaled.mirrored(true,false);
+    image_scaled.save("D:/school_21_projects/CPP7_MLP-1/src/image.png");
     QVector<QVector<double>> pixel_matrix;
     std::vector<double> img;
     
-    for (int x = 0; x < mirIm.width(); x++) {
-        for (int y = 0; y < mirIm.height(); y++) {
-            QRgb pixel_color = mirIm.pixel(x, y);
-            double val = (double(qRed(pixel_color)) + double(qGreen(pixel_color)) + double(qBlue(pixel_color)))/(3.0f * 255.f);
+    for (int x = 0; x < 28 ; x++) {
+        for (int y = 0; y < 28; y++) {
+            //QRgb pixel_color = mirIm.pixel(x, y);
+            //double val = static_cast<int>((double(qRed(pixel_color)) + double(qGreen(pixel_color)) + double(qBlue(pixel_color)))/(3.0f));
+            double val = image_scaled.pixelColor(y, x).value();
             img.push_back(val);
         }
     }
 
     qDebug() << img.size() << "\n";
+    QFile fileOut("D:/school_21_projects/CPP7_MLP-1/src/out.txt");
+    if ( fileOut.open((QIODevice::Append | QIODevice::Text))) {
+    QTextStream ws(&fileOut);
     for (auto v : img) {
-        qDebug() << v << " ";
+        ws << v << " ";
+
     }
+} else qDebug() << "error";
+    fileOut.close();
+
     std::vector<double> res = controller->predict_graph_network(img);
     std::vector<char> symbols;
     for (auto it = 'a'; it <= 'z'; ++it) {
@@ -79,6 +89,8 @@ void View::on_push_training_data_clicked()
     QString file_path;
     file_path = QFileDialog::getOpenFileName(this, " Select File","../../../..../Model/","All Files(*.*);; BMP(*.csv)");
     controller->set_path_file(file_path.toStdString());
+
+     QMessageBox::information(this, "Success", "Image saved successfully");
 }
 
 
@@ -87,12 +99,14 @@ void View::on_push_testing_data_clicked()
     QString file_path;
     file_path = QFileDialog::getOpenFileName(this, " Select File","../../../..../Model/","All Files(*.*);; BMP(*.csv)");
     controller->set_path_file(file_path.toStdString());
+     QMessageBox::information(this, "Success", "Image saved successfully");
 }
 
 
 void View::on_push_train_clicked()
 {
     controller->train_graph_network();
+     QMessageBox::information(this, "Success", "Image saved successfully");
 }
 
 
@@ -104,6 +118,7 @@ void View::on_push_check_testing_data_clicked()
     ui->recall_label->setText(QString::number(controller->get_recall()));
     ui->f_mera_label->setText(QString::number(controller->get_f_measure()));
     ui->time_label->setText(QString::number(controller->get_time()));
+    QMessageBox::information(this, "Success", "Image saved successfully");
 }
 
 

@@ -10,6 +10,7 @@ namespace s21 {
 class Model {
  public:
   Model();
+  ~Model();
   void set_path_file(const std::string&);
   void write_to_file_weights();
   void read_from_file_weights();
@@ -26,8 +27,8 @@ class Model {
   void set_count_hidden_layer(const size_t&);
 
  private:
-  size_t count_hidden_layers = 2;
-  GraphPreceptron graph_network;
+  size_t count_hidden_layers = 3;
+  GraphPreceptron * graph_network;
   Input input;
   double average_accuracy = 0;
   double precision = 0;
@@ -37,7 +38,7 @@ class Model {
   std::chrono::duration<double> time;
   std::chrono::time_point<std::chrono::steady_clock> start =
       std::chrono::steady_clock::now();
-  size_t epochs = 1;
+  size_t epochs = 2;
   bool is_right_letter(const vector_& result,
                        const vector_& expect) const noexcept;
   bool is_right_letter(const vector_& result, const vector_& expect,

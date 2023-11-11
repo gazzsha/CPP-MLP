@@ -9,7 +9,8 @@
                 "-g",
                 "${file}",
                 "D:/school_21_projects/CPP7_MLP-1/src/Model/neuron.cpp",
-                "D:/school_21_projects/CPP7_MLP-1/src/mm.cpp",
+                "D:/school_21_projects/CPP7_MLP-1/src/Model/Model.cpp",
+                "D:/school_21_projects/CPP7_MLP-1/src/Model/Input.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
