@@ -12,8 +12,8 @@ class Model {
   Model();
   ~Model();
   void set_path_file(const std::string&);
-  void write_to_file_weights();
-  void read_from_file_weights();
+  void write_to_file_weights(const std::string&);
+  void read_from_file_weights(const std::string&);
   void set_training_sample_share(const double&) noexcept;
   void train_graph_network();
   void test_graph_network();
@@ -25,10 +25,11 @@ class Model {
   void set_epochs(const size_t&) noexcept;
   double get_time() const noexcept;
   void set_count_hidden_layer(const size_t&);
+  char predict_letter(const vector_&) const noexcept;
 
  private:
   size_t count_hidden_layers = 3;
-  GraphPreceptron * graph_network;
+  GraphPreceptron* graph_network;
   Input input;
   double average_accuracy = 0;
   double precision = 0;

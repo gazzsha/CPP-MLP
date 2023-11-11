@@ -387,6 +387,8 @@ CMakeFiles/MLP.dir/MLP_autogen/mocs_compilation.cpp.o
  /usr/local/include/QtWidgets/qabstractscrollarea.h
  /usr/local/include/QtWidgets/qframe.h
  /usr/local/include/QtWidgets/qgraphicsscene.h
+ /usr/local/lib/QtWidgets.framework/Headers/QMessageBox
+ /usr/local/lib/QtWidgets.framework/Headers/qmessagebox.h
  /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/paintscene.h
  /Users/antoinco/CPP7_MLP-1/src/Controller/Controller.h
  /Users/antoinco/CPP7_MLP-1/src/Model/Model.h
@@ -1759,6 +1761,8 @@ CMakeFiles/MLP.dir/main.cpp.o
  /usr/local/include/QtWidgets/qabstractscrollarea.h
  /usr/local/include/QtWidgets/qframe.h
  /usr/local/include/QtWidgets/qgraphicsscene.h
+ /usr/local/lib/QtWidgets.framework/Headers/QMessageBox
+ /usr/local/lib/QtWidgets.framework/Headers/qmessagebox.h
  /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/paintscene.h
  /usr/local/lib/QtWidgets.framework/Headers/QGraphicsScene
  /usr/local/lib/QtWidgets.framework/Headers/qgraphicsscene.h
@@ -2449,6 +2453,8 @@ CMakeFiles/MLP.dir/view.cpp.o
  /usr/local/include/QtWidgets/qabstractscrollarea.h
  /usr/local/include/QtWidgets/qframe.h
  /usr/local/include/QtWidgets/qgraphicsscene.h
+ /usr/local/lib/QtWidgets.framework/Headers/QMessageBox
+ /usr/local/lib/QtWidgets.framework/Headers/qmessagebox.h
  /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/paintscene.h
  /usr/local/lib/QtWidgets.framework/Headers/QGraphicsScene
  /usr/local/lib/QtWidgets.framework/Headers/qgraphicsscene.h
@@ -2475,6 +2481,11 @@ CMakeFiles/MLP.dir/view.cpp.o
  /usr/local/include/QtGui/qguiapplication.h
  /usr/local/include/QtGui/qinputmethod.h
  /usr/local/include/QtGui/qguiapplication_platform.h
+ /usr/local/include/QtWidgets/QDoubleSpinBox
+ /usr/local/lib/QtWidgets.framework/Headers/qspinbox.h
+ /usr/local/include/QtWidgets/qabstractspinbox.h
+ /usr/local/include/QtGui/qvalidator.h
+ /usr/local/include/QtCore/qregularexpression.h
  /usr/local/include/QtWidgets/QGraphicsView
  /usr/local/include/QtWidgets/QGridLayout
  /usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h
@@ -2499,10 +2510,6 @@ CMakeFiles/MLP.dir/view.cpp.o
  /usr/local/include/QtWidgets/QRadioButton
  /usr/local/lib/QtWidgets.framework/Headers/qradiobutton.h
  /usr/local/include/QtWidgets/QSpinBox
- /usr/local/lib/QtWidgets.framework/Headers/qspinbox.h
- /usr/local/include/QtWidgets/qabstractspinbox.h
- /usr/local/include/QtGui/qvalidator.h
- /usr/local/include/QtCore/qregularexpression.h
  /usr/local/include/QtWidgets/QStatusBar
  /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h
  /usr/local/include/QtWidgets/QVBoxLayout
@@ -2512,4 +2519,8 @@ CMakeFiles/MLP.dir/view.cpp.o
  /usr/local/lib/QtCore.framework/Headers/qdebug.h
  /usr/local/lib/QtGui.framework/Headers/QTransform
  /usr/local/lib/QtGui.framework/Headers/qtransform.h
+ /usr/local/lib/QtCore.framework/Headers/QFile
+ /usr/local/lib/QtCore.framework/Headers/qfile.h
+ /usr/local/lib/QtCore.framework/Headers/QTextStream
+ /usr/local/lib/QtCore.framework/Headers/qtextstream.h
 

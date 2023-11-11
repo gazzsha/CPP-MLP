@@ -42,10 +42,17 @@ private slots:
 
     void on_count_5_hidden_layer_clicked();
 
+    void on_push_load_weights_clicked();
+
+    void on_push_save_weights_clicked();
+
+    void on_shape_box_valueChanged(double arg1);
+
 private:
     Ui::View *ui;
     PaintScene * scene;
     s21::Controller * controller;
+    std::vector<double> ImageToVector(const QImage&);
 
 };
 #endif // VIEW_H

@@ -1,8 +1,12 @@
 #include "Model.h"
 
 namespace s21 {
-Model::Model() : graph_network(new GraphPreceptron(count_hidden_layers)), input(), time() {}
+Model::Model()
+    : graph_network(new GraphPreceptron(count_hidden_layers)),
+      input(),
+      time() {}
 void Model::train_graph_network() {
+  start = std::chrono::steady_clock::now();
   input.GetData();
   for (size_t i = 0; i < epochs; ++i) {
     for (size_t j = 0; j < static_cast<size_t>(input.all_neurons_tests_.size() *
@@ -22,8 +26,8 @@ vector_ Model::predict_graph_network(vector_ input_stat) {
 
 void Model::set_count_hidden_layer(const size_t& val) {
   count_hidden_layers = val;
-  GraphPreceptron * cur = graph_network;
-  GraphPreceptron * new_network = new GraphPreceptron(count_hidden_layers);
+  GraphPreceptron* cur = graph_network;
+  GraphPreceptron* new_network = new GraphPreceptron(count_hidden_layers);
   graph_network = new_network;
   delete cur;
 }
@@ -48,8 +52,8 @@ void Model::test_graph_network() {
                                true_negative, false_positive, false_negative);
   }
 
-    double accuracy = static_cast<double>(count_of_true) /
-               static_cast<double>(input.answer.size());
+  double accuracy = static_cast<double>(count_of_true) /
+                    static_cast<double>(input.answer.size());
   average_accuracy = (static_cast<double>(true_positiv + true_negative)) /
                      (static_cast<double>(true_positiv + true_negative +
                                           false_positive + false_negative));
@@ -63,15 +67,15 @@ void Model::test_graph_network() {
   const auto end{std::chrono::steady_clock::now()};
   time = end - start;
 
-    std::cout << "True: " << count_of_true << "\n"
-              << "All: " << input.answer.size() << "\n"
-              << "average_accuracy: " << accuracy << "\n"
-              << "All > 0.5: " << count_of_all << "\n"
-              << "Acuracy" << average_accuracy << "\n"
-              << "Precision " << precision << "\n"
-              << "Recall " << recall << "\n"
-              << "F - mera " << f_measure << "\n"
-              << "Time: " << time.count() << "\n";
+  std::cout << "True: " << count_of_true << "\n"
+            << "All: " << input.answer.size() << "\n"
+            << "average_accuracy: " << accuracy << "\n"
+            << "All > 0.5: " << count_of_all << "\n"
+            << "Acuracy" << average_accuracy << "\n"
+            << "Precision " << precision << "\n"
+            << "Recall " << recall << "\n"
+            << "F - mera " << f_measure << "\n"
+            << "Time: " << time.count() << "\n";
 }
 
 void Model::collection_data_of_metrics(const vector_& result,
@@ -92,9 +96,13 @@ void Model::collection_data_of_metrics(const vector_& result,
     }
   }
 }
-Model::~Model() { delete graph_network; } 
-void Model::write_to_file_weights() { graph_network->write_to_file_weights(); }
-void Model::read_from_file_weights() { graph_network->read_from_file_weights(); }
+Model::~Model() { delete graph_network; }
+void Model::write_to_file_weights(const std::string& path) {
+  graph_network->write_to_file_weights(path);
+}
+void Model::read_from_file_weights(const std::string& path) {
+  graph_network->read_from_file_weights(path);
+}
 bool Model::is_right_letter(const vector_& result, const vector_& expect,
                             const double& elem) const {
   auto it_result = std::find(result.begin(), result.end(), elem);
@@ -122,4 +130,11 @@ double Model::get_precision() const noexcept { return precision; }
 double Model::get_recall() const noexcept { return recall; }
 double Model::get_f_measure() const noexcept { return f_measure; }
 void Model::set_epochs(const size_t& val) noexcept { epochs = val; }
+char Model::predict_letter(const vector_& input) const noexcept {
+  graph_network->Predict(input);
+  auto res = graph_network->get_output_vector();
+  auto it = std::max_element(res.begin(), res.end());
+  auto index = it - res.begin();
+  return index + 65;
+}
 }  // namespace s21

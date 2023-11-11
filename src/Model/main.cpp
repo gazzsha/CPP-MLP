@@ -1,5 +1,6 @@
-#include "Model.h"
 #include <iomanip>
+
+#include "Model.h"
 int main() {
   // std::vector<double> v {1,2,3,4,5};
   // std::vector<double> o
@@ -62,62 +63,63 @@ int main() {
   //   std::cout << "============\n";
   //  //gp.paint();
   s21::Model model;
-  model.set_count_hidden_layer(1);
-   model.set_path_file("../emnist-letters-train.csv");
+  // model.set_count_hidden_layer(1);
+  model.set_path_file("../emnist-letters-train.csv");
   model.train_graph_network();
   model.set_path_file("../emnist-letters-test.csv");
-    model.test_graph_network();
-      model.set_count_hidden_layer(2);
-       model.set_path_file("../emnist-letters-train.csv");
-  model.train_graph_network();
-  model.set_path_file("../emnist-letters-test.csv");
-    model.test_graph_network();
+  model.test_graph_network();
+  //     model.set_count_hidden_layer(2);
+  //      model.set_path_file("../emnist-letters-train.csv");
+  // model.train_graph_network();
+  // model.set_path_file("../emnist-letters-test.csv");
+  //   model.test_graph_network();
 
-//  model.write_to_file_weights();
-//   std::ifstream istrm("../out.txt");
-//   std::vector<double> in;
-//   if (!istrm.is_open()) throw std::runtime_error("Failed to open file");
-//   for (auto i = 0; i < 28; i++) {
-//     for  (auto j = 0; j < 28; j++) {
-//       double val;
-//       istrm >> val;
-//       std::cout<< std::setw(5)<<val;
-//      in.push_back(val/255.0f);
-//     }
-//     std::cout << "\n";
-//   }
-//  model.read_from_file_weights();
-// // model.set_path_file("../out.txt");
-//  std::vector<double> res = model.predict_graph_network(in);
-// std::vector<char> symbols;
-//     for (auto it = 'a'; it <= 'z'; ++it) {
-//         symbols.push_back(it);
-//     }
-//     auto it = std::max_element(res.begin(),res.end());
-//     auto index = it - res.begin();
-//    std::cout << symbols[index];
- // model.test_graph_network();
-//   model.set_count_hidden_layer(3);
-//  model.read_from_file_weights();
-// model.set_path_file("../out.txt");
-//   std::ifstream istrm("../out.txt");
-//   std::vector<double> in;
-//   if (!istrm.is_open()) throw std::runtime_error("Failed to open file");
-//   for (auto i = 0; i < 28; i++) {
-//     for  (auto j = 0; j < 28; j++) {
-//       double val;
-//       istrm >> val;
-//       std::cout<< std::setw(5)<<val;
-//      in.push_back(val/255.0f);
-//     }
-//     std::cout << "\n";
-//   }
-//  std::vector<double> res = model.predict_graph_network(in);
-// std::vector<char> symbols;
-//     for (auto it = 'a'; it <= 'z'; ++it) {
-//         symbols.push_back(it);
-//     }
-//     auto it = std::max_element(res.begin(),res.end());
-//     auto index = it - res.begin();
-//    std::cout << symbols[index];
+  model.write_to_file_weights("256_neurons_1_hidden_layer");
+  // std::ifstream istrm("../out.txt");
+  // std::vector<double> in;
+  // if (!istrm.is_open()) throw std::runtime_error("Failed to open file");
+  // for (auto i = 0; i < 28; i++) {
+  //   for (auto j = 0; j < 28; j++) {
+  //     double val;
+  //     istrm >> val;
+  //     std::cout << std::setw(5) << val;
+  //     in.push_back(val / 255.0f);
+  //   }
+  //   std::cout << "\n";
+  // }
+  // model.read_from_file_weights("weights.txt");
+  // model.set_path_file("../out.txt");
+  // std::vector<double> res = model.predict_graph_network(in);
+  // std::cout << model.predict_letter();
+  // std::vector<char> symbols;
+  //     for (auto it = 'a'; it <= 'z'; ++it) {
+  //         symbols.push_back(it);
+  //     }
+  //     auto it = std::max_element(res.begin(),res.end());
+  //     auto index = it - res.begin();
+  //    std::cout << symbols[index];
+  // model.test_graph_network();
+  //   model.set_count_hidden_layer(3);
+  //  model.read_from_file_weights();
+  // model.set_path_file("../out.txt");
+  //   std::ifstream istrm("../out.txt");
+  //   std::vector<double> in;
+  //   if (!istrm.is_open()) throw std::runtime_error("Failed to open file");
+  //   for (auto i = 0; i < 28; i++) {
+  //     for  (auto j = 0; j < 28; j++) {
+  //       double val;
+  //       istrm >> val;
+  //       std::cout<< std::setw(5)<<val;
+  //      in.push_back(val/255.0f);
+  //     }
+  //     std::cout << "\n";
+  //   }
+  //  std::vector<double> res = model.predict_graph_network(in);
+  // std::vector<char> symbols;
+  //     for (auto it = 'a'; it <= 'z'; ++it) {
+  //         symbols.push_back(it);
+  //     }
+  //     auto it = std::max_element(res.begin(),res.end());
+  //     auto index = it - res.begin();
+  //    std::cout << symbols[index];
 }

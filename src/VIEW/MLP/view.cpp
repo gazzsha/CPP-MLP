@@ -11,6 +11,8 @@ View::View(s21::Controller * controller_,QWidget *parent)
 {
     ui->setupUi(this);
     scene = new PaintScene();
+    ui->epochs_count_box->setValue(2);
+
     ui->graphicsView->setScene(scene);
     scene->setSceneRect(0,0,700,700);
 }
@@ -42,43 +44,43 @@ void View::on_pushPredict_clicked()
     image.fill(0);
     QPainter painter(&image);
     scene->render(&painter);
-    QImage image_scaled = image.scaled(28,28,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+    QImage new_image = image.scaled(28,28,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
     QTransform transform;
     transform.rotate(90);
-    image_scaled = image_scaled.transformed(transform);
-    image_scaled = image_scaled.mirrored(true,false);
-    image_scaled.save("D:/school_21_projects/CPP7_MLP-1/src/image.png");
-    QVector<QVector<double>> pixel_matrix;
-    std::vector<double> img;
+    new_image = new_image.transformed(transform);
+    new_image = new_image.mirrored(true,false);
+    //new_image.save(".../../../../../image.png");
+    new_image.save("../../../../../image.png");
+    std::vector<double> coordinates = ImageToVector(new_image);
+    ui->letter_label->setText(QString(controller->predict_letter(coordinates)));
     
-    for (int x = 0; x < 28 ; x++) {
-        for (int y = 0; y < 28; y++) {
-            //QRgb pixel_color = mirIm.pixel(x, y);
-            //double val = static_cast<int>((double(qRed(pixel_color)) + double(qGreen(pixel_color)) + double(qBlue(pixel_color)))/(3.0f));
-            double val = image_scaled.pixelColor(y, x).value();
-            img.push_back(val);
-        }
-    }
+    //    for (int x = 0; x < 28 ; x++) {
+    //        for (int y = 0; y < 28; y++) {
+    //            //QRgb pixel_color = mirIm.pixel(x, y);
+    //            //double val = static_cast<int>((double(qRed(pixel_color)) + double(qGreen(pixel_color)) + double(qBlue(pixel_color)))/(3.0f));
+    //            double val = new_image.pixelColor(y, x).value();
+    //            img.push_back(val);
+    //        }
+    //    }
 
-    qDebug() << img.size() << "\n";
-    QFile fileOut("D:/school_21_projects/CPP7_MLP-1/src/out.txt");
-    if ( fileOut.open((QIODevice::Append | QIODevice::Text))) {
-    QTextStream ws(&fileOut);
-    for (auto v : img) {
-        ws << v << " ";
+    //    qDebug() << img.size() << "\n";
+    //    QFile fileOut("D:/school_21_projects/CPP7_MLP-1/src/out.txt");
+    //    if ( fileOut.open((QIODevice::Append | QIODevice::Text))) {
+    //    QTextStream ws(&fileOut);
+    //    for (auto v : img) {
+    //        ws << v << " ";
 
-    }
-} else qDebug() << "error";
-    fileOut.close();
+    //    }
+    //} else qDebug() << "error";
+    //    fileOut.close();
 
-    std::vector<double> res = controller->predict_graph_network(img);
-    std::vector<char> symbols;
-    for (auto it = 'a'; it <= 'z'; ++it) {
-        symbols.push_back(it);
-    }
-    auto it = std::max_element(res.begin(),res.end());
-    auto index = it - res.begin();
-    ui->letter_label->setText(QString(symbols[index]));
+//    std::vector<double> res = controller->predict_graph_network(coordinates);
+//    std::vector<char> symbols;
+//    for (auto it = 'a'; it <= 'z'; ++it) {
+//        symbols.push_back(it);
+//    }
+//    auto it = std::max_element(res.begin(),res.end());
+//    auto index = it - res.begin();
  //   qDebug() << symbols[index] << index << "\n";
 
 }
@@ -87,7 +89,7 @@ void View::on_pushPredict_clicked()
 void View::on_push_training_data_clicked()
 {
     QString file_path;
-    file_path = QFileDialog::getOpenFileName(this, " Select File","../../../..../Model/","All Files(*.*);; BMP(*.csv)");
+    file_path = QFileDialog::getOpenFileName(this, " Select File","../../../../../Model/","All Files(*.*);; BMP(*.csv)");
     controller->set_path_file(file_path.toStdString());
 
      QMessageBox::information(this, "Success", "Image saved successfully");
@@ -97,7 +99,7 @@ void View::on_push_training_data_clicked()
 void View::on_push_testing_data_clicked()
 {
     QString file_path;
-    file_path = QFileDialog::getOpenFileName(this, " Select File","../../../..../Model/","All Files(*.*);; BMP(*.csv)");
+    file_path = QFileDialog::getOpenFileName(this, " Select File","../../../../../Model/","All Files(*.*);; BMP(*.csv)");
     controller->set_path_file(file_path.toStdString());
      QMessageBox::information(this, "Success", "Image saved successfully");
 }
@@ -142,6 +144,52 @@ void View::on_count_4_hidden_layer_clicked()
 
 void View::on_count_5_hidden_layer_clicked()
 {
-    controller->set_hidden_layers(static_cast<size_t>(5));
+   controller->set_hidden_layers(static_cast<size_t>(5));
+}
+
+std::vector<double> View::ImageToVector(const QImage& image)
+{
+    std::vector<double> coordinats;
+
+    for (auto x = 0; x < 28 ; x++) {
+        for (auto y = 0; y < 28; y++) {
+            //QRgb pixel_color = mirIm.pixel(x, y);
+            //double val = static_cast<int>((double(qRed(pixel_color)) + double(qGreen(pixel_color)) + double(qBlue(pixel_color)))/(3.0f));
+            double val = image.pixelColor(y, x).value();
+            coordinats.push_back(val);
+        }
+    }
+    return coordinats;
+}
+
+
+void View::on_push_load_weights_clicked()
+{
+    QString file_path;
+    file_path = QFileDialog::getOpenFileName(this, "Select File","../../../../../Model/","All Files(*.*);; TXT(*.txt)");
+    try {
+        controller->load_from_file_weights_graph(file_path.toStdString());
+        QMessageBox::information(this, "Success", "Weights loaded successfully");
+    } catch (...) {
+        QMessageBox::critical(this, "Error", "Something went wrong...");
+
+    }
+}
+
+
+void View::on_push_save_weights_clicked()
+{
+    QString file_path;
+    file_path = QFileDialog::getOpenFileName(this, "Select File","../../../../../Model/","All Files(*.*);; TXT(*.txt)");
+    controller->write_to_file_weights_graph(file_path.toStdString());
+    QMessageBox::information(this, "Success", "Weights saved successfully");
+
+
+}
+
+
+void View::on_shape_box_valueChanged(double arg1)
+{
+    controller->set_traininh_sample_share(arg1);
 }
 

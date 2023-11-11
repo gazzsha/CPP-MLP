@@ -386,6 +386,8 @@ CMakeFiles/MLP.dir/MLP_autogen/mocs_compilation.cpp.o: MLP_autogen/mocs_compilat
   /usr/local/include/QtWidgets/qabstractscrollarea.h \
   /usr/local/include/QtWidgets/qframe.h \
   /usr/local/include/QtWidgets/qgraphicsscene.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QMessageBox \
+  /usr/local/lib/QtWidgets.framework/Headers/qmessagebox.h \
   /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/paintscene.h \
   /Users/antoinco/CPP7_MLP-1/src/Controller/Controller.h \
   /Users/antoinco/CPP7_MLP-1/src/Model/Model.h \
@@ -1753,6 +1755,8 @@ CMakeFiles/MLP.dir/main.cpp.o: /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/main.cpp 
   /usr/local/include/QtWidgets/qabstractscrollarea.h \
   /usr/local/include/QtWidgets/qframe.h \
   /usr/local/include/QtWidgets/qgraphicsscene.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QMessageBox \
+  /usr/local/lib/QtWidgets.framework/Headers/qmessagebox.h \
   /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/paintscene.h \
   /usr/local/lib/QtWidgets.framework/Headers/QGraphicsScene \
   /usr/local/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
@@ -2441,6 +2445,8 @@ CMakeFiles/MLP.dir/view.cpp.o: /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/view.cpp 
   /usr/local/include/QtWidgets/qabstractscrollarea.h \
   /usr/local/include/QtWidgets/qframe.h \
   /usr/local/include/QtWidgets/qgraphicsscene.h \
+  /usr/local/lib/QtWidgets.framework/Headers/QMessageBox \
+  /usr/local/lib/QtWidgets.framework/Headers/qmessagebox.h \
   /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/paintscene.h \
   /usr/local/lib/QtWidgets.framework/Headers/QGraphicsScene \
   /usr/local/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
@@ -2467,6 +2473,11 @@ CMakeFiles/MLP.dir/view.cpp.o: /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/view.cpp 
   /usr/local/include/QtGui/qguiapplication.h \
   /usr/local/include/QtGui/qinputmethod.h \
   /usr/local/include/QtGui/qguiapplication_platform.h \
+  /usr/local/include/QtWidgets/QDoubleSpinBox \
+  /usr/local/lib/QtWidgets.framework/Headers/qspinbox.h \
+  /usr/local/include/QtWidgets/qabstractspinbox.h \
+  /usr/local/include/QtGui/qvalidator.h \
+  /usr/local/include/QtCore/qregularexpression.h \
   /usr/local/include/QtWidgets/QGraphicsView \
   /usr/local/include/QtWidgets/QGridLayout \
   /usr/local/lib/QtWidgets.framework/Headers/qgridlayout.h \
@@ -2491,10 +2502,6 @@ CMakeFiles/MLP.dir/view.cpp.o: /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/view.cpp 
   /usr/local/include/QtWidgets/QRadioButton \
   /usr/local/lib/QtWidgets.framework/Headers/qradiobutton.h \
   /usr/local/include/QtWidgets/QSpinBox \
-  /usr/local/lib/QtWidgets.framework/Headers/qspinbox.h \
-  /usr/local/include/QtWidgets/qabstractspinbox.h \
-  /usr/local/include/QtGui/qvalidator.h \
-  /usr/local/include/QtCore/qregularexpression.h \
   /usr/local/include/QtWidgets/QStatusBar \
   /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h \
   /usr/local/include/QtWidgets/QVBoxLayout \
@@ -2503,8 +2510,16 @@ CMakeFiles/MLP.dir/view.cpp.o: /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/view.cpp 
   /usr/local/lib/QtCore.framework/Headers/QDebug \
   /usr/local/lib/QtCore.framework/Headers/qdebug.h \
   /usr/local/lib/QtGui.framework/Headers/QTransform \
-  /usr/local/lib/QtGui.framework/Headers/qtransform.h
+  /usr/local/lib/QtGui.framework/Headers/qtransform.h \
+  /usr/local/lib/QtCore.framework/Headers/QFile \
+  /usr/local/lib/QtCore.framework/Headers/qfile.h \
+  /usr/local/lib/QtCore.framework/Headers/QTextStream \
+  /usr/local/lib/QtCore.framework/Headers/qtextstream.h
 
+
+/usr/local/lib/QtCore.framework/Headers/qtextstream.h:
+
+/usr/local/lib/QtCore.framework/Headers/QFile:
 
 /usr/local/lib/QtGui.framework/Headers/qtransform.h:
 
@@ -2519,12 +2534,6 @@ CMakeFiles/MLP.dir/view.cpp.o: /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/view.cpp 
 /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h:
 
 /usr/local/include/QtWidgets/QStatusBar:
-
-/usr/local/include/QtCore/qregularexpression.h:
-
-/usr/local/include/QtGui/qvalidator.h:
-
-/usr/local/include/QtWidgets/qabstractspinbox.h:
 
 /usr/local/include/QtWidgets/QSpinBox:
 
@@ -2560,6 +2569,12 @@ CMakeFiles/MLP.dir/view.cpp.o: /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/view.cpp 
 
 /usr/local/include/QtWidgets/QGraphicsView:
 
+/usr/local/include/QtCore/qregularexpression.h:
+
+/usr/local/include/QtGui/qvalidator.h:
+
+/usr/local/include/QtWidgets/qabstractspinbox.h:
+
 /usr/local/lib/QtCore.framework/Headers/qvariant.h:
 
 /usr/local/include/QtCore/QVariant:
@@ -2578,9 +2593,7 @@ MLP_autogen/include/ui_view.h:
 
 /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/main.cpp:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/mutex:
-
-/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp:
+/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp:
 
 /Users/antoinco/CPP7_MLP-1/src/Model/neuron.h:
 
@@ -2622,8 +2635,6 @@ MLP_autogen/include/ui_view.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_set.h:
 
-/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp:
-
 /usr/local/include/QtCore/qlocale.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fd_def.h:
@@ -2637,6 +2648,8 @@ MLP_autogen/include/ui_view.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/xlocale/_time.h:
 
 /Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp:
+
+/usr/local/lib/QtCore.framework/Headers/qfile.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_in_port_t.h:
 
@@ -2671,6 +2684,10 @@ MLP_autogen/include/ui_view.h:
 /usr/local/include/QtCore/qglobal.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/locale.h:
+
+/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/mutex:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__node_handle:
 
@@ -2739,6 +2756,8 @@ MLP_autogen/include/ui_view.h:
 /usr/local/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent:
 
 /usr/local/include/QtGui/qfont.h:
+
+/usr/local/lib/QtWidgets.framework/Headers/qmessagebox.h:
 
 /usr/local/include/QtCore/qsharedpointer_impl.h:
 
@@ -2930,6 +2949,8 @@ MLP_autogen/EWIEGA46WW/moc_view.cpp:
 
 /usr/local/include/QtCore/qsysinfo.h:
 
+/usr/local/lib/QtCore.framework/Headers/QTextStream:
+
 /usr/local/include/QtCore/qbytearrayview.h:
 
 /usr/local/include/QtGui/qtransform.h:
@@ -3033,6 +3054,8 @@ MLP_autogen/EWIEGA46WW/moc_paintscene.cpp:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__memory/allocator_traits.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/i386/limits.h:
+
+/usr/local/lib/QtWidgets.framework/Headers/QMessageBox:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/climits:
 
@@ -3223,6 +3246,8 @@ MLP_autogen/mocs_compilation.cpp:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/exception:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/Availability.h:
+
+/usr/local/include/QtWidgets/QDoubleSpinBox:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/i386/signal.h:
 
