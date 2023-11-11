@@ -9,9 +9,7 @@ void Model::train_graph_network() {
   start = std::chrono::steady_clock::now();
   input.GetData();
   for (size_t i = 0; i < epochs; ++i) {
-    for (size_t j = 0; j < static_cast<size_t>(input.all_neurons_tests_.size() *
-                                               training_sample_share);
-         ++j) {
+    for (size_t j = 0; j < input.all_neurons_tests_.size(); ++j) {
       graph_network->train(input.all_neurons_tests_[j], input.answer[j]);
     }
   }
@@ -43,7 +41,9 @@ void Model::test_graph_network() {
   size_t true_negative = 0;
   size_t false_positive = 0;
   size_t false_negative = 0;
-  for (size_t j = 0; j < input.all_neurons_tests_.size(); ++j) {
+  for (size_t j = 0; j < static_cast<size_t>(input.all_neurons_tests_.size() *
+                                             training_sample_share);
+       ++j) {
     graph_network->Predict(input.all_neurons_tests_[j]);
     vector_ result = graph_network->get_output_vector();
     if (is_right_letter(result, input.answer[j])) count_of_true++;

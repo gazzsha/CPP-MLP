@@ -6,12 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1075</width>
+    <width>1668</width>
     <height>856</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>30</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>View</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">color:white;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -177,6 +185,9 @@ color: white;</string>
        <property name="maximum">
         <number>5</number>
        </property>
+       <property name="value">
+        <number>2</number>
+       </property>
       </widget>
      </item>
     </layout>
@@ -234,7 +245,7 @@ color: white;</string>
           <string>2</string>
          </property>
          <property name="checked">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -256,6 +267,9 @@ color: white;</string>
          </property>
          <property name="text">
           <string>3</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -298,6 +312,9 @@ color: white;</string>
          </property>
          <property name="text">
           <string>5</string>
+         </property>
+         <property name="checked">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -577,7 +594,7 @@ color: white;</string>
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="pushLoad">
+   <widget class="QPushButton" name="push_load_bmp">
     <property name="geometry">
      <rect>
       <x>770</x>
@@ -596,7 +613,7 @@ color: white;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
- background-color: rgb(236, 233, 238);</string>
+ background-color: rgb(85, 24, 98)</string>
     </property>
     <property name="text">
      <string>Load BMP...</string>
@@ -621,7 +638,7 @@ color: white;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
- background-color: rgb(236, 233, 238);</string>
+ background-color: rgb(85, 24, 98)</string>
     </property>
     <property name="text">
      <string>Train</string>
@@ -662,7 +679,7 @@ color: white;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">border-radius: 10px;
- background-color: rgb(236, 233, 238);</string>
+ background-color: rgb(85, 24, 98);</string>
        </property>
        <property name="text">
         <string>Predict BMP</string>
@@ -681,7 +698,7 @@ color: white;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">border-radius: 10px;
- background-color: rgb(236, 233, 238);</string>
+ background-color:rgb(85, 24, 98)</string>
        </property>
        <property name="text">
         <string>Predict</string>
@@ -700,7 +717,7 @@ color: white;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">border-radius: 10px;
- background-color: rgb(236, 233, 238);</string>
+ background-color: rgb(85, 24, 98);</string>
        </property>
        <property name="text">
         <string>Clear</string>
@@ -728,7 +745,7 @@ color: white;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
- background-color: rgb(236, 233, 238);</string>
+ background-color: rgb(85, 24, 98)</string>
     </property>
     <property name="text">
      <string>Load Training Data...</string>
@@ -753,7 +770,7 @@ color: white;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
- background-color: rgb(236, 233, 238);</string>
+ background-color: rgb(85, 24, 98)</string>
     </property>
     <property name="text">
      <string>Load Testing Data...</string>
@@ -778,7 +795,7 @@ color: white;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
- background-color: rgb(236, 233, 238);</string>
+ background-color: rgb(85, 24, 98)</string>
     </property>
     <property name="text">
      <string>Check Testing Data</string>
@@ -803,7 +820,7 @@ color: white;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
- background-color: rgb(236, 233, 238);</string>
+ background-color: rgb(85, 24, 98)</string>
     </property>
     <property name="text">
      <string>Load weights</string>
@@ -828,7 +845,7 @@ color: white;</string>
     </property>
     <property name="styleSheet">
      <string notr="true">border-radius: 10px;
- background-color: rgb(236, 233, 238);</string>
+ background-color: rgb(85, 24, 98)</string>
     </property>
     <property name="text">
      <string>Save weights</string>
@@ -860,7 +877,7 @@ color: white;</string>
 color: white;</string>
        </property>
        <property name="text">
-        <string>Part of Traing</string>
+        <string>Part of Training</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -900,13 +917,75 @@ color: white;</string>
      </item>
     </layout>
    </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>1070</x>
+      <y>40</y>
+      <width>521</width>
+      <height>401</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Narrow</family>
+      <pointsize>30</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:  white;</string>
+    </property>
+    <property name="gridStyle">
+     <enum>Qt::DashLine</enum>
+    </property>
+    <property name="columnCount">
+     <number>6</number>
+    </property>
+    <attribute name="horizontalHeaderMinimumSectionSize">
+     <number>10</number>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>100</number>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>№</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Accurancy</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Precision</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Recall</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>F-Mera</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Time</string>
+     </property>
+    </column>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1075</width>
+     <width>1668</width>
      <height>24</height>
     </rect>
    </property>

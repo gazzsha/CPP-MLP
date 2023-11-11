@@ -11,7 +11,6 @@ View::View(s21::Controller * controller_,QWidget *parent)
 {
     ui->setupUi(this);
     scene = new PaintScene();
-    ui->epochs_count_box->setValue(2);
 
     ui->graphicsView->setScene(scene);
     scene->setSceneRect(0,0,700,700);
@@ -89,7 +88,7 @@ void View::on_pushPredict_clicked()
 void View::on_push_training_data_clicked()
 {
     QString file_path;
-    file_path = QFileDialog::getOpenFileName(this, " Select File","../../../../../Model/","All Files(*.*);; BMP(*.csv)");
+    file_path = QFileDialog::getOpenFileName(this, " Select File","../../../../../Model/","All Files(*.*);; CSV(*.csv)");
     controller->set_path_file(file_path.toStdString());
 
      QMessageBox::information(this, "Success", "Image saved successfully");
@@ -99,7 +98,7 @@ void View::on_push_training_data_clicked()
 void View::on_push_testing_data_clicked()
 {
     QString file_path;
-    file_path = QFileDialog::getOpenFileName(this, " Select File","../../../../../Model/","All Files(*.*);; BMP(*.csv)");
+    file_path = QFileDialog::getOpenFileName(this, " Select File","../../../../../Model/","All Files(*.*);; CVS(*.csv)");
     controller->set_path_file(file_path.toStdString());
      QMessageBox::information(this, "Success", "Image saved successfully");
 }
@@ -191,5 +190,16 @@ void View::on_push_save_weights_clicked()
 void View::on_shape_box_valueChanged(double arg1)
 {
     controller->set_traininh_sample_share(arg1);
+}
+
+
+void View::on_push_load_bmp_clicked()
+{
+    QString file_path;
+    file_path = QFileDialog::getOpenFileName(this, " Select File","../../../../../Model/","All Files(*.*);; BMP(*.bmp)");
+    QImage img = QImage(file_path);
+    img.invertPixels();
+    img.save("../../../../../image.bmp");
+
 }
 

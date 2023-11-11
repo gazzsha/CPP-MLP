@@ -2495,6 +2495,18 @@ CMakeFiles/MLP.dir/view.cpp.o
  /usr/local/include/QtWidgets/qgridlayout.h
  /usr/local/include/QtWidgets/QHBoxLayout
  /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h
+ /usr/local/include/QtWidgets/QHeaderView
+ /usr/local/lib/QtWidgets.framework/Headers/qheaderview.h
+ /usr/local/include/QtWidgets/qabstractitemview.h
+ /usr/local/include/QtCore/qabstractitemmodel.h
+ /usr/local/include/QtCore/qitemselectionmodel.h
+ /usr/local/include/QtWidgets/qabstractitemdelegate.h
+ /usr/local/include/QtWidgets/qstyleoption.h
+ /usr/local/include/QtWidgets/qslider.h
+ /usr/local/include/QtWidgets/qabstractslider.h
+ /usr/local/include/QtWidgets/qstyle.h
+ /usr/local/include/QtWidgets/qtabbar.h
+ /usr/local/include/QtWidgets/qrubberband.h
  /usr/local/include/QtWidgets/QLabel
  /usr/local/lib/QtWidgets.framework/Headers/qlabel.h
  /usr/local/include/QtGui/qpicture.h
@@ -2512,6 +2524,9 @@ CMakeFiles/MLP.dir/view.cpp.o
  /usr/local/include/QtWidgets/QSpinBox
  /usr/local/include/QtWidgets/QStatusBar
  /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h
+ /usr/local/include/QtWidgets/QTableWidget
+ /usr/local/lib/QtWidgets.framework/Headers/qtablewidget.h
+ /usr/local/include/QtWidgets/qtableview.h
  /usr/local/include/QtWidgets/QVBoxLayout
  /usr/local/include/QtWidgets/QWidget
  /usr/local/lib/QtWidgets.framework/Headers/qwidget.h

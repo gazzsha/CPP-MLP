@@ -2487,6 +2487,18 @@ CMakeFiles/MLP.dir/view.cpp.o: /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/view.cpp 
   /usr/local/include/QtWidgets/qgridlayout.h \
   /usr/local/include/QtWidgets/QHBoxLayout \
   /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h \
+  /usr/local/include/QtWidgets/QHeaderView \
+  /usr/local/lib/QtWidgets.framework/Headers/qheaderview.h \
+  /usr/local/include/QtWidgets/qabstractitemview.h \
+  /usr/local/include/QtCore/qabstractitemmodel.h \
+  /usr/local/include/QtCore/qitemselectionmodel.h \
+  /usr/local/include/QtWidgets/qabstractitemdelegate.h \
+  /usr/local/include/QtWidgets/qstyleoption.h \
+  /usr/local/include/QtWidgets/qslider.h \
+  /usr/local/include/QtWidgets/qabstractslider.h \
+  /usr/local/include/QtWidgets/qstyle.h \
+  /usr/local/include/QtWidgets/qtabbar.h \
+  /usr/local/include/QtWidgets/qrubberband.h \
   /usr/local/include/QtWidgets/QLabel \
   /usr/local/lib/QtWidgets.framework/Headers/qlabel.h \
   /usr/local/include/QtGui/qpicture.h \
@@ -2504,6 +2516,9 @@ CMakeFiles/MLP.dir/view.cpp.o: /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/view.cpp 
   /usr/local/include/QtWidgets/QSpinBox \
   /usr/local/include/QtWidgets/QStatusBar \
   /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h \
+  /usr/local/include/QtWidgets/QTableWidget \
+  /usr/local/lib/QtWidgets.framework/Headers/qtablewidget.h \
+  /usr/local/include/QtWidgets/qtableview.h \
   /usr/local/include/QtWidgets/QVBoxLayout \
   /usr/local/include/QtWidgets/QWidget \
   /usr/local/lib/QtWidgets.framework/Headers/qwidget.h \
@@ -2531,6 +2546,8 @@ CMakeFiles/MLP.dir/view.cpp.o: /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/view.cpp 
 
 /usr/local/include/QtWidgets/QVBoxLayout:
 
+/usr/local/lib/QtWidgets.framework/Headers/qtablewidget.h:
+
 /usr/local/lib/QtWidgets.framework/Headers/qstatusbar.h:
 
 /usr/local/include/QtWidgets/QStatusBar:
@@ -2552,6 +2569,26 @@ CMakeFiles/MLP.dir/view.cpp.o: /Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/view.cpp 
 /usr/local/include/QtGui/qtextdocument.h:
 
 /usr/local/lib/QtWidgets.framework/Headers/qlabel.h:
+
+/usr/local/include/QtWidgets/qrubberband.h:
+
+/usr/local/include/QtWidgets/qstyle.h:
+
+/usr/local/include/QtWidgets/qabstractslider.h:
+
+/usr/local/include/QtWidgets/qslider.h:
+
+/usr/local/include/QtWidgets/qstyleoption.h:
+
+/usr/local/include/QtWidgets/qabstractitemdelegate.h:
+
+/usr/local/include/QtCore/qitemselectionmodel.h:
+
+/usr/local/include/QtCore/qabstractitemmodel.h:
+
+/usr/local/lib/QtWidgets.framework/Headers/qheaderview.h:
+
+/usr/local/include/QtWidgets/QHeaderView:
 
 /usr/local/lib/QtWidgets.framework/Headers/qboxlayout.h:
 
@@ -2600,6 +2637,8 @@ MLP_autogen/include/ui_view.h:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/sstream:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/fstream:
+
+/usr/local/include/QtWidgets/QTableWidget:
 
 /Users/antoinco/CPP7_MLP-1/src/Controller/Controller.h:
 
@@ -2814,6 +2853,8 @@ MLP_autogen/include/ui_view.h:
 /usr/local/include/QtCore/qmath.h:
 
 /usr/local/include/QtCore/qdatastream.h:
+
+/usr/local/include/QtWidgets/qabstractitemview.h:
 
 /usr/local/include/QtCore/qvarlengtharray.h:
 
@@ -3060,6 +3101,8 @@ MLP_autogen/EWIEGA46WW/moc_paintscene.cpp:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/climits:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__memory/pointer_traits.h:
+
+/usr/local/include/QtWidgets/qtabbar.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_fsblkcnt_t.h:
 
@@ -3416,6 +3459,8 @@ MLP_autogen/mocs_compilation.cpp:
 /usr/local/include/QtGui/qwindowdefs.h:
 
 /usr/local/include/QtCore/qrect.h:
+
+/usr/local/include/QtWidgets/qtableview.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/stdint.h:
 

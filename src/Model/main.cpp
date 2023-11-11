@@ -74,7 +74,7 @@ int main() {
   // model.set_path_file("../emnist-letters-test.csv");
   //   model.test_graph_network();
 
-  model.write_to_file_weights("256_neurons_1_hidden_layer");
+  model.write_to_file_weights("128_neurons_5_hidden_layer_4_epochs");
   // std::ifstream istrm("../out.txt");
   // std::vector<double> in;
   // if (!istrm.is_open()) throw std::runtime_error("Failed to open file");

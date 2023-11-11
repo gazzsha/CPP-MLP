@@ -48,6 +48,8 @@ private slots:
 
     void on_shape_box_valueChanged(double arg1);
 
+    void on_push_load_bmp_clicked();
+
 private:
     Ui::View *ui;
     PaintScene * scene;

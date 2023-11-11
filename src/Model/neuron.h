@@ -53,13 +53,13 @@ class GraphPreceptron {
  public:
   GraphPreceptron() = delete;
   GraphPreceptron(const GraphPreceptron&) = delete;
-  GraphPreceptron(const size_t& = 1, const size_t& = 768, const size_t& = 256,
+  GraphPreceptron(const size_t& = 5, const size_t& = 768, const size_t& = 128,
                   const size_t& = 26);
   //  void DirectPassage();
   void Predict(const std::vector<double>&);
   void train(const std::vector<double>&, const std::vector<double>&,
-             const double& = 0.15);
-  void TrainAll(const double& = 0.15);
+             const double& = 0.16);
+  void TrainAll(const double& = 0.16);
   std::vector<double> get_output_vector() noexcept;
   void write_to_file_weights(const std::string&);
   void read_from_file_weights(const std::string&);

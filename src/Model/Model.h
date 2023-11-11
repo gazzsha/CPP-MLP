@@ -28,7 +28,7 @@ class Model {
   char predict_letter(const vector_&) const noexcept;
 
  private:
-  size_t count_hidden_layers = 3;
+  size_t count_hidden_layers = 5;
   GraphPreceptron* graph_network;
   Input input;
   double average_accuracy = 0;
@@ -39,7 +39,7 @@ class Model {
   std::chrono::duration<double> time;
   std::chrono::time_point<std::chrono::steady_clock> start =
       std::chrono::steady_clock::now();
-  size_t epochs = 2;
+  size_t epochs = 4;
   bool is_right_letter(const vector_& result,
                        const vector_& expect) const noexcept;
   bool is_right_letter(const vector_& result, const vector_& expect,
