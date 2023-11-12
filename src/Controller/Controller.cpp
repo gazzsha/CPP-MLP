@@ -63,4 +63,25 @@ vector_ Controller::get_f_measure_vec() const noexcept {
 vector_ Controller::get_time_vec() const noexcept {
   return model->get_time_vec();
 }
+double Controller::get_average_accuracy_of_full_train() const noexcept {
+  return model->get_average_accuracy_of_full_train();
+}
+double Controller::get_average_precision_of_full_train() const noexcept {
+  return model->get_average_precision_of_full_train();
+}
+double Controller::get_average_recall_of_full_train() const noexcept {
+  return model->get_average_recall_of_full_train();
+}
+double Controller::get_average_f_measure_of_full_train() const noexcept {
+  return model->get_average_f_measure_of_full_train();
+}
+double Controller::get_full_time_of_full_train() const noexcept {
+  return model->get_full_time_of_full_train();
+}
+vector_ Controller::get_vector_epochs() const noexcept {
+  return model->get_vector_epochs();
+}
+void Controller::CrossValidationGraph(const size_t& k) {
+  model->cross_validation(k);
+}
 }  // namespace s21

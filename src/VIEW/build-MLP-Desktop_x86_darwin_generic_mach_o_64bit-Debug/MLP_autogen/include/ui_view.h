@@ -27,6 +27,7 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "qcustomplot.h"
+
 QT_BEGIN_NAMESPACE
 
 class Ui_View
@@ -129,6 +130,7 @@ public:
 "}\n"
 "\n"
 ""));
+        GraphRadio->setChecked(true);
         MatrixRadio = new QRadioButton(centralwidget);
         MatrixRadio->setObjectName(QString::fromUtf8("MatrixRadio"));
         MatrixRadio->setGeometry(QRect(910, 280, 131, 31));
@@ -174,7 +176,7 @@ public:
         label_2->setStyleSheet(QString::fromUtf8("\n"
 "    border-radius: 3px;\n"
 "color: white;"));
-        label_2->setAlignment(Qt::AlignCenter);
+        label_2->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
         horizontalLayout_2->addWidget(label_2);
 
@@ -470,7 +472,7 @@ public:
 " background-color: rgb(85, 24, 98)"));
         horizontalLayoutWidget_4 = new QWidget(centralwidget);
         horizontalLayoutWidget_4->setObjectName(QString::fromUtf8("horizontalLayoutWidget_4"));
-        horizontalLayoutWidget_4->setGeometry(QRect(770, 450, 278, 60));
+        horizontalLayoutWidget_4->setGeometry(QRect(770, 450, 271, 60));
         horizontalLayout_5 = new QHBoxLayout(horizontalLayoutWidget_4);
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
@@ -525,10 +527,11 @@ public:
         QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(5, __qtablewidgetitem5);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
-        tableWidget->setGeometry(QRect(1050, 40, 601, 111));
+        tableWidget->setGeometry(QRect(1050, 40, 601, 191));
         widget = new QCustomPlot(centralwidget);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(1050, 380, 601, 421));
+        widget->setGeometry(QRect(1050, 290, 601, 511));
+        widget->setStyleSheet(QString::fromUtf8(""));
         View->setCentralWidget(centralwidget);
         menubar = new QMenuBar(View);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -581,9 +584,9 @@ public:
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QCoreApplication::translate("View", "\342\204\226", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("View", "New Column", nullptr));
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("View", "Accurancy", nullptr));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("View", "Accurancy", nullptr));
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("View", "Precision", nullptr));
         QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QCoreApplication::translate("View", "Recall", nullptr));
         QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);

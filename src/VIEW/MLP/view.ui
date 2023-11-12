@@ -69,6 +69,9 @@ QRadioButton::indicator:unchecked {
     <property name="text">
      <string>Graph</string>
     </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
    </widget>
    <widget class="QRadioButton" name="MatrixRadio">
     <property name="geometry">
@@ -150,7 +153,7 @@ color: white;</string>
         <string>Epochs</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
@@ -856,7 +859,7 @@ color: white;</string>
      <rect>
       <x>770</x>
       <y>450</y>
-      <width>278</width>
+      <width>271</width>
       <height>60</height>
      </rect>
     </property>
@@ -948,7 +951,7 @@ color: white;</string>
       <x>1050</x>
       <y>40</y>
       <width>601</width>
-      <height>111</height>
+      <height>191</height>
      </rect>
     </property>
     <column>
@@ -958,12 +961,12 @@ color: white;</string>
     </column>
     <column>
      <property name="text">
-      <string>New Column</string>
+      <string>Accurancy</string>
      </property>
     </column>
     <column>
      <property name="text">
-      <string>Accurancy</string>
+      <string>Precision</string>
      </property>
     </column>
     <column>
@@ -986,10 +989,13 @@ color: white;</string>
     <property name="geometry">
      <rect>
       <x>1050</x>
-      <y>380</y>
+      <y>290</y>
       <width>601</width>
-      <height>421</height>
+      <height>511</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
    </widget>
   </widget>

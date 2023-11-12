@@ -29,8 +29,14 @@ class Controller {
   vector_ get_recall_vec() const noexcept;
   vector_ get_f_measure_vec() const noexcept;
   vector_ get_time_vec() const noexcept;
-
   size_t get_epochs() const noexcept;
+  double get_average_accuracy_of_full_train() const noexcept;
+  double get_average_precision_of_full_train() const noexcept;
+  double get_average_recall_of_full_train() const noexcept;
+  double get_average_f_measure_of_full_train() const noexcept;
+  double get_full_time_of_full_train() const noexcept;
+  vector_ get_vector_epochs() const noexcept;
+  void CrossValidationGraph(const size_t&);
 
  private:
   Model* model;

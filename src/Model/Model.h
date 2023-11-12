@@ -2,6 +2,7 @@
 #define S21_CCP7_MLP_MODEL_MODEL_H
 #include <algorithm>
 #include <chrono>
+#include <utility>
 
 #include "Input.h"
 #include "neuron.h"
@@ -34,6 +35,13 @@ class Model {
   vector_ get_recall_vec() const noexcept;
   vector_ get_f_measure_vec() const noexcept;
   vector_ get_time_vec() const noexcept;
+  double get_average_accuracy_of_full_train() const noexcept;
+  double get_average_precision_of_full_train() const noexcept;
+  double get_average_recall_of_full_train() const noexcept;
+  double get_average_f_measure_of_full_train() const noexcept;
+  double get_full_time_of_full_train() const noexcept;
+  vector_ get_vector_epochs() const noexcept;
+  void cross_validation(const size_t&);
 
  private:
   size_t count_hidden_layers = 3;
@@ -48,7 +56,7 @@ class Model {
   std::chrono::duration<double> time;
   std::chrono::time_point<std::chrono::steady_clock> start =
       std::chrono::steady_clock::now();
-  size_t epochs = 2;
+  size_t epochs = 4;
   vector_ average_accuracy_vec;
   vector_ precision_vec;
   vector_ recall_vec;
