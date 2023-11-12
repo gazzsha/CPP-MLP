@@ -1,18 +1,19 @@
 #ifndef S21_CCP7_MLP_CONTROLLER_CONTROLLER_H
 #define S21_CCP7_MLP_CONTROLLER_CONTROLLER_H
 #include "../Model/Model.h"
+#include "../Model/ModelMain.h"
 
 namespace s21 {
 class Controller {
  public:
   Controller() = delete;
-  Controller(Model* model_);
+  Controller(Network* model_);
   void set_path_file_train(const std::string& file_path);
   void set_path_file_test(const std::string& file_path);
   void WriteToFileWeights(const std::string&);
   void LoadFromFileWeights(const std::string&);
   void set_traininh_sample_share(const double& shape) noexcept;
-  void TrainGraphNetwork();
+  void TrainNetwork();
   void TrainWithoutEpochsGraphNetwork();
   void TestGraphNetwork();
   vector_ predict_graph_network(vector_ data);
@@ -39,7 +40,7 @@ class Controller {
   void CrossValidationGraph(const size_t&);
 
  private:
-  Model* model;
+  Network* model;
 };
 }  // namespace s21
 

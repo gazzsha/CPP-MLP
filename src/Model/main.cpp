@@ -63,20 +63,21 @@ int main() {
   //   std::cout << "============\n";
   //  //gp.paint();
   s21::Model model;
-  model.set_count_hidden_layer(2);
+
+  model.SetCountHiddenLayer(2);
   model.set_path_file_train("../emnist-letters-train.csv");
-  // model.train_graph_network();
-  model.cross_validation(10);
+  model.Train();
+  // model.cross_validation(10);
   model.set_path_file_test("../emnist-letters-test.csv");
-  model.test_graph_network();
+  model.Test();
   //     model.set_count_hidden_layer(2);
   //      model.set_path_file("../emnist-letters-train.csv");
   // model.train_graph_network();
   // model.set_path_file("../emnist-letters-test.csv");
   //   model.test_graph_network();
 
-  model.write_to_file_weights(
-      "128_neurons_2_hidden_layer_4_epochs_after_cross");
+  // model.write_to_file_weights(
+  //     "128_neurons_2_hidden_layer_4_epochs_after_cross");
   // std::ifstream istrm("../out.txt");
   // std::vector<double> in;
   // if (!istrm.is_open()) throw std::runtime_error("Failed to open file");

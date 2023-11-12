@@ -2,7 +2,7 @@
 
 namespace s21 {
 
-Controller::Controller(Model* model_) : model(model_) {}
+Controller::Controller(Network* model_) : model(model_) {}
 void Controller::set_path_file_test(const std::string& file_path) {
   model->set_path_file_test(file_path);
 }
@@ -10,15 +10,15 @@ void Controller::set_path_file_train(const std::string& file_path) {
   model->set_path_file_train(file_path);
 }
 void Controller::WriteToFileWeights(const std::string& path) {
-  model->write_to_file_weights(path);
+  model->WriteToFileWeights(path);
 }
 void Controller::LoadFromFileWeights(const std::string& path) {
-  model->read_from_file_weights(path);
+  model->ReadFromFileWeights(path);
 }
 void Controller::set_traininh_sample_share(const double& shape) noexcept {
   model->set_training_sample_share(shape);
 }
-void Controller::TrainGraphNetwork() { model->train_graph_network(); }
+void Controller::Train() { model->TrainNetwork(); }
 void Controller::TestGraphNetwork() { model->test_graph_network(); }
 vector_ Controller::predict_graph_network(vector_ data) {
   return model->predict_graph_network(data);
