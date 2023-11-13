@@ -31,6 +31,9 @@ set(PROJECT_SOURCES
         ../../Model/neuron.h
         ../../Model/Input.cpp
         ../../Model/Input.h
+        ../../Model/Graph.h
+        ../../Model/Graph.cpp
+        ../../Model/Network.h
 
 )
 

@@ -1,8 +1,8 @@
 #include "Graph.h"
 
 namespace s21 {
-Graph::Graph(const size_t& count_hidden_layers_, const size_t& epochs_)
-    : graph_network(new GraphPreceptron(count_hidden_layers_)) {}
+Graph::Graph(const size_t& count_hidden_layers_)
+    : graph_network(std::make_unique<GraphPreceptron>(count_hidden_layers_)) {}
 
 void Graph::TrainNetwork(Input& input_train, const size_t& epochs) {
   input_train.GetData();
@@ -31,11 +31,12 @@ vector_ Graph::PredictVector(vector_ input_stat) {
   return graph_network->get_output_vector();
 }
 
-void Graph::SetCountHiddenLayer(const size_t& count_) {
-  GraphPreceptron* cur = graph_network;
-  GraphPreceptron* new_network = new GraphPreceptron(count_);
-  graph_network = new_network;
-  delete cur;
+void Graph::set_count_hidden_layer(const size_t& count_) {
+  // GraphPreceptron* cur = graph_network;
+  // GraphPreceptron* new_network = new GraphPreceptron(count_);
+  // graph_network = new_network;
+  // delete cur;
+  graph_network.reset(std::make_unique<GraphPreceptron>(count_).release());
 }
 // void Graph::set_path_file_test(const std::string& path_file) {
 //   input_test.file_path = path_file;
@@ -68,7 +69,6 @@ void Graph::SetCountHiddenLayer(const size_t& count_) {
 //     }
 //   }
 // }
-Graph::~Graph() { delete graph_network; }
 void Graph::WriteToFileWeights(const std::string& path) {
   graph_network->write_to_file_weights(path);
 }

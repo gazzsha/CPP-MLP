@@ -7,7 +7,7 @@
 	"CMAKE_LIST_FILES" : 
 	[
 		"/Users/antoinco/CPP7_MLP-1/src/VIEW/MLP/CMakeLists.txt",
-		"/private/var/folders/zz/zyxvpxvq6csfxvn_n0002q5c000nsb/T/AppTranslocation/8AA7812D-E527-4345-9918-7D1356A2A08C/d/Qt Creator.app/Contents/Resources/package-manager/auto-setup.cmake",
+		"/private/var/folders/zz/zyxvpxvq6csfxvn_n0002q5c000nsb/T/AppTranslocation/EC49D852-7C5F-4357-BBDA-27D21C65CE1D/d/Qt Creator.app/Contents/Resources/package-manager/auto-setup.cmake",
 		"/Users/antoinco/CPP7_MLP-1/src/VIEW/build-MLP-Desktop_x86_darwin_generic_mach_o_64bit-Debug/CMakeFiles/3.23.0/CMakeSystem.cmake",
 		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake",
 		"/Applications/CMake.app/Contents/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake",
@@ -297,6 +297,12 @@
 			null
 		],
 		[
+			"/Users/antoinco/CPP7_MLP-1/src/Model/Graph.h",
+			"MU",
+			"YKKMG2TMYU/moc_Graph.cpp",
+			null
+		],
+		[
 			"/Users/antoinco/CPP7_MLP-1/src/Model/Input.h",
 			"MU",
 			"YKKMG2TMYU/moc_Input.cpp",
@@ -306,6 +312,12 @@
 			"/Users/antoinco/CPP7_MLP-1/src/Model/Model.h",
 			"MU",
 			"YKKMG2TMYU/moc_Model.cpp",
+			null
+		],
+		[
+			"/Users/antoinco/CPP7_MLP-1/src/Model/Network.h",
+			"MU",
+			"YKKMG2TMYU/moc_Network.cpp",
 			null
 		],
 		[
@@ -394,6 +406,7 @@
 			"MU",
 			null
 		],
+		[ "/Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp", "MU", null ],
 		[ "/Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp", "MU", null ],
 		[ "/Users/antoinco/CPP7_MLP-1/src/Model/Model.cpp", "MU", null ],
 		[ "/Users/antoinco/CPP7_MLP-1/src/Model/neuron.cpp", "MU", null ],

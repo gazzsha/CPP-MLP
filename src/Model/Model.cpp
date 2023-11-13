@@ -1,6 +1,6 @@
 #include "Model.h"
 namespace s21 {
-Model::Model(const NetworkType& Type, const size_t& count_of_hidden_layers_,
+Model::Model(const NetworkType& type_, const size_t& count_of_hidden_layers_,
              const size_t& epochs_)
     : input_train(),
       input_test(),
@@ -14,12 +14,10 @@ Model::Model(const NetworkType& Type, const size_t& count_of_hidden_layers_,
       recall_vec(),
       f_measure_vec(),
       time_vec(),
-      model(nullptr),
+      model(std::make_unique<Graph>(count_of_hidden_layers_)),
+      type(type_),
       count_hidden_layers(count_of_hidden_layers_),
-      epochs(epochs_) {
-  if (Type == NetworkType::GraphNetwork)
-    model = new Graph(count_hidden_layers, epochs_);
-}
+      epochs(epochs_) {}
 void Model::set_path_file_test(const std::string& path_file) {
   input_test.file_path = path_file;
   average_accuracy_vec.clear();
@@ -87,8 +85,23 @@ vector_ Model::get_vector_epochs() const noexcept {
   return temp;
 }
 
+void Model::ClearData() {
+  average_accuracy_vec.clear();
+  precision_vec.clear();
+  recall_vec.clear();
+  f_measure_vec.clear();
+  time_vec.clear();
+}
+
 void Model::Train() { model->TrainNetwork(input_train, epochs); }
-void Model::TrainWithoutEpochs() { model->TrainWithoutEpochs(input_train); }
+void Model::TrainOnline() {
+  ClearData();
+  for (size_t i = 0; i < epochs; ++i) {
+    start = std::chrono::steady_clock::now();
+    model->TrainWithoutEpochs(input_train);
+    Test();
+  }
+}
 void Model::Test() {
   input_test.GetData();
   size_t count_of_true = 0;
@@ -193,7 +206,10 @@ char Model::PredictLetter(const vector_& input) const noexcept {
   return model->PredictLetter(input);
 }
 
-void Model::SetCountHiddenLayer(const size_t& count) {
-  model->SetCountHiddenLayer(count);
+void Model::set_count_hidden_layer(const size_t& count) {
+  model->set_count_hidden_layer(count);
+}
+vector_ Model::PredictVector(vector_ data) const {
+  return model->PredictVector(data);
 }
 }  // namespace s21

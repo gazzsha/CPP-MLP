@@ -14,19 +14,19 @@ View::View(s21::Controller * controller_,QWidget *parent)
 
     ui->graphicsView->setScene(scene);
     scene->setSceneRect(0,0,700,700);
+    ui->widget->addGraph(ui->widget->xAxis, ui->widget->yAxis);
+ ui->widget->addGraph(ui->widget->xAxis, ui->widget->yAxis);
+ui->widget->addGraph(ui->widget->xAxis, ui->widget->yAxis);
+ui->widget->addGraph(ui->widget->xAxis, ui->widget->yAxis);
+ui->widget->addGraph(ui->widget->xAxis, ui->widget->yAxis2);
+ui->widget->plotLayout()->insertRow(0);
+ui->widget->plotLayout()->addElement(0, 0, new QCPTextElement(ui->widget, "Metrics report", QFont("Arial", 26, QFont::Bold)));
 
 }
 
 View::~View()
 {
     delete ui;
-}
-
-
-void View::on_pushLoad_clicked()
-{
-    QString file_path;
-    file_path = QFileDialog::getOpenFileName(this, " Select File","../../../..","All Files(*.*);; BMP(*.bmp)");
 }
 
 
@@ -90,9 +90,11 @@ void View::on_push_training_data_clicked()
 {
     QString file_path;
     file_path = QFileDialog::getOpenFileName(this, " Select File","../../../../../","All Files(*.*);; CSV(*.csv)");
-    controller->set_path_file_train(file_path.toStdString());
-
-     QMessageBox::information(this, "Success", "Data downloaded successfully");
+    if (!file_path.isEmpty()) { controller->set_path_file_train(file_path.toStdString());
+    QMessageBox::information(this, "Success", "Data downloaded successfully");
+    } else {
+        QMessageBox::critical(this, "Error", "Something went wrong...");
+    }
 }
 
 
@@ -108,7 +110,7 @@ void View::on_push_testing_data_clicked()
 void View::on_push_train_clicked()
 {
     try {
-    controller->TrainGraphNetwork();
+    controller->Train();
     } catch(...)   { QMessageBox::critical(this, "Error", "Something went wrong..."); }
     QMessageBox::information(this, "Success", "Network trained successfully");
 }
@@ -117,7 +119,7 @@ void View::on_push_train_clicked()
 void View::on_push_check_testing_data_clicked()
 {
     try {
-    controller->TestGraphNetwork();
+    controller->Test();
     } catch(...)  { QMessageBox::critical(this, "Error", "Something went wrong..."); }
     ui->accuracy_label->setText(QString::number(controller->get_average_accuracy()));
     ui->precision_label->setText(QString::number(controller->get_precision()));
@@ -170,7 +172,7 @@ std::vector<double> View::ImageToVector(const QImage& image)
 void View::on_push_load_weights_clicked()
 {
     QString file_path;
-    file_path = QFileDialog::getOpenFileName(this, "Select File","../../../../../Model/","All Files(*);; TXT(*.txt)");
+    file_path = QFileDialog::getOpenFileName(this, "Select File","../../../../../Weights/","All Files(*);; TXT(*.txt)");
     try {
         controller->LoadFromFileWeights(file_path.toStdString());
         QMessageBox::information(this, "Success", "Weights loaded successfully");
@@ -185,7 +187,7 @@ void View::on_push_save_weights_clicked()
 {
 
     QString file_path;
-    file_path = QFileDialog::getSaveFileName(this, "Select File","../../../../../Model/","All Files(*);; TXT(*.txt)");
+    file_path = QFileDialog::getSaveFileName(this, "Select File","../../../../../Weights/","All Files(*);; TXT(*.txt)");
     try {
     controller->WriteToFileWeights(file_path.toStdString());
     QMessageBox::information(this, "Success", "Weights saved successfully");
@@ -244,16 +246,15 @@ void View::on_push_train_online_clicked()
     ui->tableWidget->setColumnWidth(3,200);
     ui->tableWidget->setColumnWidth(4,200);
     ui->tableWidget->setColumnWidth(5,200);
+    controller->TrainOnline();
     for (size_t i = 0; i < controller->get_epochs(); ++i) {
-        controller->TrainWithoutEpochsGraphNetwork();
-        controller->TestGraphNetwork();
-        ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i)));
-        ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::number(controller->get_average_accuracy())));
-        ui->tableWidget->setItem(i,2,new QTableWidgetItem(QString::number(controller->get_precision())));
-        ui->tableWidget->setItem(i,3,new QTableWidgetItem(QString::number(controller->get_recall())));
-        ui->tableWidget->setItem(i,4,new QTableWidgetItem(QString::number(controller->get_f_measure())));
-        ui->tableWidget->setItem(i,5,new QTableWidgetItem(QString::number(controller->get_time())));
-    }
+      ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i)));
+        ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::number(controller->get_average_accuracy_vec()[i])));
+        ui->tableWidget->setItem(i,2,new QTableWidgetItem(QString::number(controller->get_precision_vec()[i])));
+        ui->tableWidget->setItem(i,3,new QTableWidgetItem(QString::number(controller->get_recall_vec()[i])));
+        ui->tableWidget->setItem(i,4,new QTableWidgetItem(QString::number(controller->get_f_measure_vec()[i])));
+        ui->tableWidget->setItem(i,5,new QTableWidgetItem(QString::number(controller->get_time_vec()[i])));
+}
 s21::vector_ x_data_std = controller->get_vector_epochs();
 s21::vector_ average_accuracy_std = controller->get_average_accuracy_vec();
 s21::vector_ precision_std = controller->get_precision_vec();
@@ -278,8 +279,11 @@ ui->widget->legend->setFont(legendFont);
 ui->widget->legend->setBrush(QBrush(QColor(255,255,255,230)));
 // by default, the legend is in the inset layout of the main axis rect. So this is how we access it to change legend placement:
 ui->widget->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::AlignRight);
-
-    ui->widget->addGraph(ui->widget->xAxis, ui->widget->yAxis);
+ui->widget->graph(0)->data()->clear();
+    ui->widget->graph(1)->data()->clear();
+        ui->widget->graph(2)->data()->clear();
+            ui->widget->graph(3)->data()->clear();
+                ui->widget->graph(4)->data()->clear();
     QPen blue_pen;
     blue_pen.setColor(Qt::blue);
     blue_pen.setWidthF(3);
@@ -287,7 +291,6 @@ ui->widget->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::
    ui->widget->graph(0)->setPen(blue_pen);
  ui->widget->graph(0)->setName("Average_accuracy");
     ui->widget->graph(0)->addData(x_data,average_accuracy);
-        ui->widget->addGraph(ui->widget->xAxis, ui->widget->yAxis);
         QPen red_pen;
         red_pen.setColor(Qt::red);
         red_pen.setWidthF(3);
@@ -297,7 +300,7 @@ ui->widget->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::
      ui->widget->graph(1)->addData(x_data,precision);
 
 
-     ui->widget->addGraph(ui->widget->xAxis, ui->widget->yAxis);
+
      QPen green_pen;
      green_pen.setColor(Qt::green);
      green_pen.setWidthF(3);
@@ -306,7 +309,7 @@ ui->widget->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::
   ui->widget->graph(2)->setName("Recall");
   ui->widget->graph(2)->addData(x_data,recall);
 
-  ui->widget->addGraph(ui->widget->xAxis, ui->widget->yAxis);
+
   QPen chocolate_pen;
   chocolate_pen.setColor(QColorConstants::Svg::chocolate);
  chocolate_pen.setWidthF(3);
@@ -314,9 +317,6 @@ ui->widget->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::
  ui->widget->graph(3)->setPen(chocolate_pen);
 ui->widget->graph(3)->setName("f_measure");
 ui->widget->graph(3)->addData(x_data,f_measure);
-
-
-ui->widget->addGraph(ui->widget->xAxis, ui->widget->yAxis2);
 QPen deeppink_pen;
 deeppink_pen.setColor(QColorConstants::Svg::deeppink);
 deeppink_pen.setWidthF(3);
@@ -337,9 +337,6 @@ ui->widget->graph(4)->addData(x_data,time);
         ui->widget->yAxis2->setSubTickLength(1, 1);
         ui->widget->xAxis->setTickLength(0, 5);
         ui->widget->xAxis->setSubTickLength(0, 3);
-
-        ui->widget->plotLayout()->insertRow(0);
-        ui->widget->plotLayout()->addElement(0, 0, new QCPTextElement(ui->widget, "Metrics report", QFont("Arial", 26, QFont::Bold)));
         ui->widget->replot();
         ui->accuracy_label->setText(QString::number(controller->get_average_accuracy_of_full_train()));
         ui->precision_label->setText(QString::number(controller->get_average_precision_of_full_train()));
@@ -360,6 +357,6 @@ void View::on_count_2_hidden_layer_clicked()
 void View::on_push_start_cross_validation_clicked()
 {
     const size_t k = ui->cross_validation_count->value();
-    controller->CrossValidationGraph(k);
+    controller->CrossValidation(k);
 }
 

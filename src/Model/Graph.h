@@ -6,8 +6,8 @@ namespace s21 {
 
 class Graph : public Network {
  public:
-  Graph(const size_t& count_hidden_layers_ = 2, const size_t& epochs_ = 4);
-  ~Graph();
+  Graph(const size_t& count_hidden_layers_ = 2);
+  ~Graph() = default;
   // void set_path_file_test(const std::string&);
   // void set_path_file_train(const std::string&);
   void WriteToFileWeights(const std::string&) override;
@@ -23,7 +23,7 @@ class Graph : public Network {
   // void set_epochs(const size_t&) noexcept;
   //  size_t get_epochs() const noexcept;
   // double get_time() const noexcept;
-  void SetCountHiddenLayer(const size_t&) override;
+  void set_count_hidden_layer(const size_t&) override;
   char PredictLetter(const vector_&) const noexcept override;
   // vector_ get_average_accuracy_vec() const noexcept;
   //   vector_ get_precision_vec() const noexcept;
@@ -47,7 +47,8 @@ class Graph : public Network {
   //                                size_t&, size_t&) const noexcept;
 
  private:
-  GraphPreceptron* graph_network;
+  // GraphPreceptron* graph_network;
+  std::unique_ptr<GraphPreceptron> graph_network;
 };
 
 }  // namespace s21

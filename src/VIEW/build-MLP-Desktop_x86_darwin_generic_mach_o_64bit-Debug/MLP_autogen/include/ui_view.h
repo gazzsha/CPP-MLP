@@ -69,7 +69,7 @@ public:
     QGraphicsView *graphicsView;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout_4;
-    QPushButton *push_predict_bmp;
+    QPushButton *push_start_cross_validation;
     QPushButton *pushPredict;
     QPushButton *pushClear;
     QPushButton *push_training_data;
@@ -84,6 +84,10 @@ public:
     QPushButton *push_train_online;
     QTableWidget *tableWidget;
     QCustomPlot *widget;
+    QWidget *horizontalLayoutWidget_5;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_10;
+    QSpinBox *cross_validation_count;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -101,7 +105,7 @@ public:
         centralwidget->setStyleSheet(QString::fromUtf8("   background-color:    rgb(84, 74, 128);"));
         GraphRadio = new QRadioButton(centralwidget);
         GraphRadio->setObjectName(QString::fromUtf8("GraphRadio"));
-        GraphRadio->setGeometry(QRect(770, 280, 131, 31));
+        GraphRadio->setGeometry(QRect(770, 260, 131, 31));
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Charter")});
         font1.setPointSize(18);
@@ -133,7 +137,7 @@ public:
         GraphRadio->setChecked(true);
         MatrixRadio = new QRadioButton(centralwidget);
         MatrixRadio->setObjectName(QString::fromUtf8("MatrixRadio"));
-        MatrixRadio->setGeometry(QRect(910, 280, 131, 31));
+        MatrixRadio->setGeometry(QRect(910, 260, 131, 31));
         MatrixRadio->setFont(font1);
         MatrixRadio->setLayoutDirection(Qt::RightToLeft);
         MatrixRadio->setAutoFillBackground(false);
@@ -161,7 +165,7 @@ public:
 ""));
         horizontalLayoutWidget_2 = new QWidget(centralwidget);
         horizontalLayoutWidget_2->setObjectName(QString::fromUtf8("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(770, 400, 271, 44));
+        horizontalLayoutWidget_2->setGeometry(QRect(770, 440, 271, 44));
         horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -200,13 +204,13 @@ public:
         epochs_count_box->setAlignment(Qt::AlignCenter);
         epochs_count_box->setMinimum(1);
         epochs_count_box->setMaximum(5);
-        epochs_count_box->setValue(2);
+        epochs_count_box->setValue(4);
 
         horizontalLayout_2->addWidget(epochs_count_box);
 
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(770, 320, 271, 71));
+        verticalLayoutWidget->setGeometry(QRect(770, 310, 271, 71));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -230,7 +234,7 @@ public:
         count_2_hidden_layer->setFont(font4);
         count_2_hidden_layer->setLayoutDirection(Qt::LeftToRight);
         count_2_hidden_layer->setStyleSheet(QString::fromUtf8("color: white;"));
-        count_2_hidden_layer->setChecked(false);
+        count_2_hidden_layer->setChecked(true);
 
         horizontalLayout->addWidget(count_2_hidden_layer);
 
@@ -239,7 +243,7 @@ public:
         count_3_hidden_layer->setFont(font4);
         count_3_hidden_layer->setLayoutDirection(Qt::LeftToRight);
         count_3_hidden_layer->setStyleSheet(QString::fromUtf8("color: white;"));
-        count_3_hidden_layer->setChecked(true);
+        count_3_hidden_layer->setChecked(false);
 
         horizontalLayout->addWidget(count_3_hidden_layer);
 
@@ -248,6 +252,7 @@ public:
         count_4_hidden_layer->setFont(font4);
         count_4_hidden_layer->setLayoutDirection(Qt::LeftToRight);
         count_4_hidden_layer->setStyleSheet(QString::fromUtf8("color: white;"));
+        count_4_hidden_layer->setChecked(false);
 
         horizontalLayout->addWidget(count_4_hidden_layer);
 
@@ -265,7 +270,7 @@ public:
 
         horizontalLayoutWidget_3 = new QWidget(centralwidget);
         horizontalLayoutWidget_3->setObjectName(QString::fromUtf8("horizontalLayoutWidget_3"));
-        horizontalLayoutWidget_3->setGeometry(QRect(770, 510, 271, 71));
+        horizontalLayoutWidget_3->setGeometry(QRect(770, 550, 271, 71));
         horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget_3);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -386,7 +391,7 @@ public:
 
         push_load_bmp = new QPushButton(centralwidget);
         push_load_bmp->setObjectName(QString::fromUtf8("push_load_bmp"));
-        push_load_bmp->setGeometry(QRect(770, 70, 271, 21));
+        push_load_bmp->setGeometry(QRect(770, 50, 271, 21));
         QFont font8;
         font8.setFamilies({QString::fromUtf8("Ayuthaya")});
         font8.setPointSize(15);
@@ -397,7 +402,7 @@ public:
 " background-color: rgb(85, 24, 98)"));
         push_train = new QPushButton(centralwidget);
         push_train->setObjectName(QString::fromUtf8("push_train"));
-        push_train->setGeometry(QRect(770, 130, 271, 21));
+        push_train->setGeometry(QRect(770, 110, 271, 21));
         QFont font9;
         font9.setFamilies({QString::fromUtf8("Ayuthaya")});
         font9.setPointSize(17);
@@ -416,13 +421,13 @@ public:
         horizontalLayout_4 = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
-        push_predict_bmp = new QPushButton(horizontalLayoutWidget);
-        push_predict_bmp->setObjectName(QString::fromUtf8("push_predict_bmp"));
-        push_predict_bmp->setFont(font9);
-        push_predict_bmp->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
+        push_start_cross_validation = new QPushButton(horizontalLayoutWidget);
+        push_start_cross_validation->setObjectName(QString::fromUtf8("push_start_cross_validation"));
+        push_start_cross_validation->setFont(font9);
+        push_start_cross_validation->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
 " background-color: rgb(85, 24, 98);"));
 
-        horizontalLayout_4->addWidget(push_predict_bmp);
+        horizontalLayout_4->addWidget(push_start_cross_validation);
 
         pushPredict = new QPushButton(horizontalLayoutWidget);
         pushPredict->setObjectName(QString::fromUtf8("pushPredict"));
@@ -442,37 +447,37 @@ public:
 
         push_training_data = new QPushButton(centralwidget);
         push_training_data->setObjectName(QString::fromUtf8("push_training_data"));
-        push_training_data->setGeometry(QRect(770, 40, 271, 21));
+        push_training_data->setGeometry(QRect(770, 20, 271, 21));
         push_training_data->setFont(font8);
         push_training_data->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
 " background-color: rgb(85, 24, 98)"));
         push_testing_data = new QPushButton(centralwidget);
         push_testing_data->setObjectName(QString::fromUtf8("push_testing_data"));
-        push_testing_data->setGeometry(QRect(770, 100, 271, 21));
+        push_testing_data->setGeometry(QRect(770, 80, 271, 21));
         push_testing_data->setFont(font9);
         push_testing_data->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
 " background-color: rgb(85, 24, 98)"));
         push_check_testing_data = new QPushButton(centralwidget);
         push_check_testing_data->setObjectName(QString::fromUtf8("push_check_testing_data"));
-        push_check_testing_data->setGeometry(QRect(770, 190, 271, 21));
+        push_check_testing_data->setGeometry(QRect(770, 170, 271, 21));
         push_check_testing_data->setFont(font9);
         push_check_testing_data->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
 " background-color: rgb(85, 24, 98)"));
         push_load_weights = new QPushButton(centralwidget);
         push_load_weights->setObjectName(QString::fromUtf8("push_load_weights"));
-        push_load_weights->setGeometry(QRect(770, 220, 271, 21));
+        push_load_weights->setGeometry(QRect(770, 200, 271, 21));
         push_load_weights->setFont(font9);
         push_load_weights->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
 " background-color: rgb(85, 24, 98)"));
         push_save_weights = new QPushButton(centralwidget);
         push_save_weights->setObjectName(QString::fromUtf8("push_save_weights"));
-        push_save_weights->setGeometry(QRect(770, 250, 271, 21));
+        push_save_weights->setGeometry(QRect(770, 230, 271, 21));
         push_save_weights->setFont(font9);
         push_save_weights->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
 " background-color: rgb(85, 24, 98)"));
         horizontalLayoutWidget_4 = new QWidget(centralwidget);
         horizontalLayoutWidget_4->setObjectName(QString::fromUtf8("horizontalLayoutWidget_4"));
-        horizontalLayoutWidget_4->setGeometry(QRect(770, 450, 271, 60));
+        horizontalLayoutWidget_4->setGeometry(QRect(770, 490, 278, 60));
         horizontalLayout_5 = new QHBoxLayout(horizontalLayoutWidget_4);
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
@@ -507,7 +512,7 @@ public:
 
         push_train_online = new QPushButton(centralwidget);
         push_train_online->setObjectName(QString::fromUtf8("push_train_online"));
-        push_train_online->setGeometry(QRect(770, 160, 271, 21));
+        push_train_online->setGeometry(QRect(770, 140, 271, 21));
         push_train_online->setFont(font9);
         push_train_online->setStyleSheet(QString::fromUtf8("border-radius: 10px;\n"
 " background-color: rgb(85, 24, 98)"));
@@ -532,6 +537,36 @@ public:
         widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(1050, 290, 601, 511));
         widget->setStyleSheet(QString::fromUtf8(""));
+        horizontalLayoutWidget_5 = new QWidget(centralwidget);
+        horizontalLayoutWidget_5->setObjectName(QString::fromUtf8("horizontalLayoutWidget_5"));
+        horizontalLayoutWidget_5->setGeometry(QRect(770, 390, 271, 44));
+        horizontalLayout_6 = new QHBoxLayout(horizontalLayoutWidget_5);
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
+        label_10 = new QLabel(horizontalLayoutWidget_5);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setFont(font2);
+        label_10->setStyleSheet(QString::fromUtf8("\n"
+"    border-radius: 3px;\n"
+"color: white;"));
+        label_10->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_6->addWidget(label_10);
+
+        cross_validation_count = new QSpinBox(horizontalLayoutWidget_5);
+        cross_validation_count->setObjectName(QString::fromUtf8("cross_validation_count"));
+        sizePolicy.setHeightForWidth(cross_validation_count->sizePolicy().hasHeightForWidth());
+        cross_validation_count->setSizePolicy(sizePolicy);
+        cross_validation_count->setFont(font3);
+        cross_validation_count->setStyleSheet(QString::fromUtf8("\n"
+"color: white;"));
+        cross_validation_count->setAlignment(Qt::AlignCenter);
+        cross_validation_count->setMinimum(1);
+        cross_validation_count->setMaximum(100);
+        cross_validation_count->setValue(1);
+
+        horizontalLayout_6->addWidget(cross_validation_count);
+
         View->setCentralWidget(centralwidget);
         menubar = new QMenuBar(View);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -571,7 +606,7 @@ public:
         time_label->setText(QCoreApplication::translate("View", "0.0", nullptr));
         push_load_bmp->setText(QCoreApplication::translate("View", "Load BMP...", nullptr));
         push_train->setText(QCoreApplication::translate("View", "Train", nullptr));
-        push_predict_bmp->setText(QCoreApplication::translate("View", "Predict BMP", nullptr));
+        push_start_cross_validation->setText(QCoreApplication::translate("View", "Start Cross Validation", nullptr));
         pushPredict->setText(QCoreApplication::translate("View", "Predict", nullptr));
         pushClear->setText(QCoreApplication::translate("View", "Clear", nullptr));
         push_training_data->setText(QCoreApplication::translate("View", "Load Training Data...", nullptr));
@@ -593,6 +628,7 @@ public:
         ___qtablewidgetitem4->setText(QCoreApplication::translate("View", "F-Mera", nullptr));
         QTableWidgetItem *___qtablewidgetitem5 = tableWidget->horizontalHeaderItem(5);
         ___qtablewidgetitem5->setText(QCoreApplication::translate("View", "Time", nullptr));
+        label_10->setText(QCoreApplication::translate("View", "Cross Validation", nullptr));
     } // retranslateUi
 
 };

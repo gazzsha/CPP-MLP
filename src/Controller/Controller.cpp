@@ -2,7 +2,7 @@
 
 namespace s21 {
 
-Controller::Controller(Network* model_) : model(model_) {}
+Controller::Controller(Model* model_) : model(model_) {}
 void Controller::set_path_file_test(const std::string& file_path) {
   model->set_path_file_test(file_path);
 }
@@ -18,13 +18,13 @@ void Controller::LoadFromFileWeights(const std::string& path) {
 void Controller::set_traininh_sample_share(const double& shape) noexcept {
   model->set_training_sample_share(shape);
 }
-void Controller::Train() { model->TrainNetwork(); }
-void Controller::TestGraphNetwork() { model->test_graph_network(); }
-vector_ Controller::predict_graph_network(vector_ data) {
-  return model->predict_graph_network(data);
+void Controller::Train() { model->Train(); }
+void Controller::Test() { model->Test(); }
+vector_ Controller::PredictVector(vector_ data) {
+  return model->PredictVector(data);
 }
 char Controller::PredictLetter(const vector_& input) const noexcept {
-  return model->predict_letter(input);
+  return model->PredictLetter(input);
 }
 double Controller::get_average_accuracy() const noexcept {
   return model->get_average_accuracy();
@@ -44,9 +44,7 @@ void Controller::set_hidden_layers(const size_t& val) {
   model->set_count_hidden_layer(val);
 }
 size_t Controller::get_epochs() const noexcept { return model->get_epochs(); }
-void Controller::TrainWithoutEpochsGraphNetwork() {
-  model->TrainWithoutEpochs();
-}
+void Controller::TrainOnline() { model->TrainOnline(); }
 
 vector_ Controller::get_average_accuracy_vec() const noexcept {
   return model->get_average_accuracy_vec();
@@ -81,7 +79,5 @@ double Controller::get_full_time_of_full_train() const noexcept {
 vector_ Controller::get_vector_epochs() const noexcept {
   return model->get_vector_epochs();
 }
-void Controller::CrossValidationGraph(const size_t& k) {
-  model->cross_validation(k);
-}
+void Controller::CrossValidation(const size_t& k) { model->CrossValidation(k); }
 }  // namespace s21

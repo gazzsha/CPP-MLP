@@ -20,8 +20,6 @@ public:
     ~View();
 
 private slots:
-    void on_pushLoad_clicked();
-
     void on_pushClear_clicked();
     void on_pushPredict_clicked();
 
@@ -53,6 +51,8 @@ private slots:
     void on_push_train_online_clicked();
 
     void on_count_2_hidden_layer_clicked();
+
+    void on_push_start_cross_validation_clicked();
 
 private:
     Ui::View *ui;

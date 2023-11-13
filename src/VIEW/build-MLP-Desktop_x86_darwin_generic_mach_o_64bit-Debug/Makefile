@@ -216,6 +216,30 @@ Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MLP.dir/build.make CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.s
 .PHONY : Users/antoinco/CPP7_MLP-1/src/Controller/Controller.cpp.s
 
+Users/antoinco/CPP7_MLP-1/src/Model/Graph.o: Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp.o
+.PHONY : Users/antoinco/CPP7_MLP-1/src/Model/Graph.o
+
+# target to build an object file
+Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MLP.dir/build.make CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp.o
+.PHONY : Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp.o
+
+Users/antoinco/CPP7_MLP-1/src/Model/Graph.i: Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp.i
+.PHONY : Users/antoinco/CPP7_MLP-1/src/Model/Graph.i
+
+# target to preprocess a source file
+Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MLP.dir/build.make CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp.i
+.PHONY : Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp.i
+
+Users/antoinco/CPP7_MLP-1/src/Model/Graph.s: Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp.s
+.PHONY : Users/antoinco/CPP7_MLP-1/src/Model/Graph.s
+
+# target to generate assembly for a file
+Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MLP.dir/build.make CMakeFiles/MLP.dir/Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp.s
+.PHONY : Users/antoinco/CPP7_MLP-1/src/Model/Graph.cpp.s
+
 Users/antoinco/CPP7_MLP-1/src/Model/Input.o: Users/antoinco/CPP7_MLP-1/src/Model/Input.cpp.o
 .PHONY : Users/antoinco/CPP7_MLP-1/src/Model/Input.o
 
@@ -378,6 +402,9 @@ help:
 	@echo "... Users/antoinco/CPP7_MLP-1/src/Controller/Controller.o"
 	@echo "... Users/antoinco/CPP7_MLP-1/src/Controller/Controller.i"
 	@echo "... Users/antoinco/CPP7_MLP-1/src/Controller/Controller.s"
+	@echo "... Users/antoinco/CPP7_MLP-1/src/Model/Graph.o"
+	@echo "... Users/antoinco/CPP7_MLP-1/src/Model/Graph.i"
+	@echo "... Users/antoinco/CPP7_MLP-1/src/Model/Graph.s"
 	@echo "... Users/antoinco/CPP7_MLP-1/src/Model/Input.o"
 	@echo "... Users/antoinco/CPP7_MLP-1/src/Model/Input.i"
 	@echo "... Users/antoinco/CPP7_MLP-1/src/Model/Input.s"

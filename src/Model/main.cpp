@@ -63,13 +63,14 @@ int main() {
   //   std::cout << "============\n";
   //  //gp.paint();
   s21::Model model;
-
-  model.SetCountHiddenLayer(2);
+  model.set_epochs(5);
+  model.set_count_hidden_layer(2);
   model.set_path_file_train("../emnist-letters-train.csv");
   model.Train();
   // model.cross_validation(10);
   model.set_path_file_test("../emnist-letters-test.csv");
   model.Test();
+  std::cout << "\n" << model.get_epochs() << " ";
   //     model.set_count_hidden_layer(2);
   //      model.set_path_file("../emnist-letters-train.csv");
   // model.train_graph_network();

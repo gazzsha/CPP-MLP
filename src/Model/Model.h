@@ -10,6 +10,7 @@ class Model {
  public:
   Model(const NetworkType& = GraphNetwork, const size_t& = 2,
         const size_t& = 4);
+  ~Model() = default;
   void set_path_file_test(const std::string&);
   void set_path_file_train(const std::string&);
   void set_training_sample_share(const double&) noexcept;
@@ -32,12 +33,14 @@ class Model {
   double get_full_time_of_full_train() const noexcept;
   vector_ get_vector_epochs() const noexcept;
   void Train();
-  void TrainWithoutEpochs();
+  void TrainOnline();
   void Test();
   void WriteToFileWeights(const std::string&);
   void ReadFromFileWeights(const std::string&);
   void CrossValidation(const size_t&);
-  void SetCountHiddenLayer(const size_t&);
+  void set_count_hidden_layer(const size_t&);
+  char PredictLetter(const vector_&) const noexcept;
+  vector_ PredictVector(vector_ data) const;
 
  private:
   Input input_train;
@@ -55,7 +58,9 @@ class Model {
   std::chrono::duration<double> time;
   std::chrono::time_point<std::chrono::steady_clock> start =
       std::chrono::steady_clock::now();
-  Network* model;
+  // Network* model;
+  std::unique_ptr<Network> model;
+  NetworkType type;
   size_t count_hidden_layers;
   size_t epochs;
   void CollectionDataOfMetrics(const vector_& result, const vector_& expect,
@@ -66,7 +71,7 @@ class Model {
   bool IsRightLetter(const vector_& result, const vector_& expect,
                      const double& elem) const noexcept;
   size_t CountOfTrueResult(const vector_& vec) const noexcept;
-  char PredictLetter(const vector_&) const noexcept;
+  void ClearData();
 };
 }  // namespace s21
 #endif  // S21_CCP7_MLP_MODEL_MODEL_H
