@@ -3,12 +3,12 @@
 #include "Graph.h"
 #include "Input.h"
 #include "Network.h"
-enum NetworkType { GraphNetwork, MatrixNetwork };
+enum class NetworkType { kGraphNetwork = 0, kMatrixNetwork };
 
 namespace s21 {
 class Model {
  public:
-  Model(const NetworkType& = GraphNetwork, const size_t& = 2,
+  Model(const NetworkType& = NetworkType::kGraphNetwork, const size_t& = 2,
         const size_t& = 4);
   ~Model() = default;
   void set_path_file_test(const std::string&);
@@ -32,6 +32,7 @@ class Model {
   double get_average_f_measure_of_full_train() const noexcept;
   double get_full_time_of_full_train() const noexcept;
   vector_ get_vector_epochs() const noexcept;
+  // void SwitchModel();
   void Train();
   void TrainOnline();
   void Test();

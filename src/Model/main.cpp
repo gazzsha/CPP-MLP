@@ -63,14 +63,25 @@ int main() {
   //   std::cout << "============\n";
   //  //gp.paint();
   s21::Model model;
-  model.set_epochs(5);
+  model.set_epochs(4);
   model.set_count_hidden_layer(2);
-  model.set_path_file_train("../emnist-letters-train.csv");
-  model.Train();
-  // model.cross_validation(10);
+  // model.set_path_file_train("../emnist-letters-train.csv");
+  // model.Train();
+  // // model.cross_validation(10);
+  model.ReadFromFileWeights("../Weights/128_neurons_2_hidden_layer_4_epochs");
   model.set_path_file_test("../emnist-letters-test.csv");
-  model.Test();
-  std::cout << "\n" << model.get_epochs() << " ";
+  std::chrono::duration<double> time;
+  std::chrono::time_point<std::chrono::steady_clock> start =
+      std::chrono::steady_clock::now();
+  for (size_t i = 0; i < 1000; i++) {
+    model.Test();
+  }
+  const auto end{std::chrono::steady_clock::now()};
+  time = end - start;
+  std::cout << time.count();
+
+  // model.Test();
+  // std::cout << "\n" << model.get_epochs() << " ";
   //     model.set_count_hidden_layer(2);
   //      model.set_path_file("../emnist-letters-train.csv");
   // model.train_graph_network();

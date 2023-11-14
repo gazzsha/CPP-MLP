@@ -26,7 +26,11 @@ void Model::set_path_file_test(const std::string& path_file) {
   f_measure_vec.clear();
   time_vec.clear();
 }
-
+// void Model::SwitchModel() {
+//   type == NetworkType::kGraphNetwork
+//       ? model.reset(std::make_unique<Matrix>(count_hidden_layers).release())
+//       : model.reset(std::make_unique<Graph>(count_hidden_layers).release());
+// }
 void Model::set_path_file_train(const std::string& path_file) {
   input_train.file_path = path_file;
 }
