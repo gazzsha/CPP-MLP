@@ -126,8 +126,8 @@ void Model::Test() {
                             true_negative, false_positive, false_negative);
   }
 
-  double accuracy = static_cast<double>(count_of_true) /
-                    static_cast<double>(input_test.answer.size());
+  // double accuracy = static_cast<double>(count_of_true) /
+  //                   static_cast<double>(input_test.answer.size());
   average_accuracy = (static_cast<double>(true_positiv + true_negative)) /
                      (static_cast<double>(true_positiv + true_negative +
                                           false_positive + false_negative));

@@ -1,6 +1,6 @@
 CXX = g++
 version = -std=c++17
-TESTS = ./TESTING/
+TESTS = ./TEST/
 SRC_MODEL_PATH = ./Model/
 SRC_MODEL = $(wildcard $(SRC_MODEL_PATH)*.cpp)
 SRC_CONTROLLER_PATH = ./Controller/
@@ -11,6 +11,7 @@ REPORT = gcov_report
 CXXFLAGS = -Wall -Wextra -Werror -Wpedantic -g
 SANITIZE = -fsanitize=address -g
 UNAME := $(shell uname)
+OPTIMIZATIONFLAGS := -O3
 
 
 ifeq ($(UNAME), Linux)
@@ -22,7 +23,7 @@ endif
 all: uninstall clean $(TARGET) install dvi dist
 
 $(TARGET) : $(SRC) $(SRC_TEST)
-	$(CXX) $(version) $(CXXFLAGS) $(SRC_TEST) $(SRC_MODEL) $(SRC_CONTROLLER) $(TEST_FLAGS) -o $(TARGET)
+	$(CXX) $(version) $(CXXFLAGS) $(SRC_TEST) $(SRC_MODEL)  $(TEST_FLAGS) -o $(TARGET) $(OPTIMIZATIONFLAGS)
 	./$(TARGET)
 
 

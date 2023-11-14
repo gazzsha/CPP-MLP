@@ -1,5 +1,0 @@
-D:/school_21_projects/CPP7_MLP-1/src/VIEW/build-MLP-Cmake-Debug/CMakeFiles/MLP.dir
-D:/school_21_projects/CPP7_MLP-1/src/VIEW/build-MLP-Cmake-Debug/CMakeFiles/edit_cache.dir
-D:/school_21_projects/CPP7_MLP-1/src/VIEW/build-MLP-Cmake-Debug/CMakeFiles/rebuild_cache.dir
-D:/school_21_projects/CPP7_MLP-1/src/VIEW/build-MLP-Cmake-Debug/CMakeFiles/MLP_autogen_timestamp_deps.dir
-D:/school_21_projects/CPP7_MLP-1/src/VIEW/build-MLP-Cmake-Debug/CMakeFiles/MLP_autogen.dir
