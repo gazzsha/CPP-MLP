@@ -7,12 +7,12 @@ namespace s21 {
 class Controller {
  public:
   Controller() = delete;
-  Controller(Model* model_);
-  void set_path_file_train(const std::string& file_path);
-  void set_path_file_test(const std::string& file_path);
-  void WriteToFileWeights(const std::string&);
-  void LoadFromFileWeights(const std::string&);
-  void set_traininh_sample_share(const double& shape) noexcept;
+  Controller(Model *model_);
+  void set_path_file_train(const std::string &file_path);
+  void set_path_file_test(const std::string &file_path);
+  void WriteToFileWeights(const std::string &);
+  void LoadFromFileWeights(const std::string &);
+  void set_traininh_sample_share(const double &shape) noexcept;
   void Train();
   void TrainOnline();
   void Test();
@@ -22,9 +22,9 @@ class Controller {
   double get_recall() const noexcept;
   double get_f_measure() const noexcept;
   double get_time() const noexcept;
-  void set_epochs(const size_t& val) noexcept;
-  void set_hidden_layers(const size_t&);
-  char PredictLetter(const vector_&) const noexcept;
+  void set_epochs(const size_t &val) noexcept;
+  void set_hidden_layers(const size_t &);
+  char PredictLetter(const vector_ &) const noexcept;
   vector_ get_average_accuracy_vec() const noexcept;
   vector_ get_precision_vec() const noexcept;
   vector_ get_recall_vec() const noexcept;
@@ -37,10 +37,11 @@ class Controller {
   double get_average_f_measure_of_full_train() const noexcept;
   double get_full_time_of_full_train() const noexcept;
   vector_ get_vector_epochs() const noexcept;
-  void CrossValidation(const size_t&);
+  void CrossValidation(const size_t &);
+  void SwitchModel();
 
  private:
-  Model* model;
+  Model *model;
 };
 }  // namespace s21
 

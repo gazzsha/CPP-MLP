@@ -34,6 +34,10 @@ set(PROJECT_SOURCES
         ../../Model/Graph.h
         ../../Model/Graph.cpp
         ../../Model/Network.h
+        ../../Model/PerceptronMatrix.cpp
+        ../../Model/PerceptronMatrix.h
+        ../../Model/Matrix.cpp
+        ../../Model/Matrix.h
 
 )
 

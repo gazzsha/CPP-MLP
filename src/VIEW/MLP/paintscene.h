@@ -4,17 +4,17 @@
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
 
-class PaintScene : public QGraphicsScene
-{
-    Q_OBJECT
-public:
-    explicit PaintScene(QObject *parent = 0);
-    ~PaintScene();
-private:
-    QPointF previousPoint;
+class PaintScene : public QGraphicsScene {
+  Q_OBJECT
+ public:
+  explicit PaintScene(QObject *parent = 0);
+  ~PaintScene();
 
-    void mousePressEvent(QGraphicsSceneMouseEvent * event);
-    void mouseMoveEvent(QGraphicsSceneMouseEvent * event);
+ private:
+  QPointF previousPoint;
+
+  void mousePressEvent(QGraphicsSceneMouseEvent *event);
+  void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
 };
 
-#endif // PAINTSCENE_H
+#endif  // PAINTSCENE_H

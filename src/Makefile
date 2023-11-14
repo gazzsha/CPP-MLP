@@ -34,7 +34,7 @@ install: clean | install_qcustom_plot
 	open View/Build_MLP/MLP.app/
 
 uninstall:
-	rm -rf View/Build_MLP
+	rm -rf View/Build_MLP View/QCustomPlot-library
 
 dist: install
 	tar --totals -cvf 3d_viewer.tar View TESTING Model Controller
@@ -49,7 +49,7 @@ install_qcustom_plot:
 	cd View/MLP && git clone https://github.com/legerch/QCustomPlot-library
 
 style: 
-	clang-format -i  ./TESTING/*h ./TESTING/*cpp  ./Model/*h ./Model/*cpp ./Controller/*h ./Controller/*cpp ./View/*h ./View/*cpp
+	clang-format -i ./Model/*h ./Model/*cpp ./Controller/*h ./Controller/*cpp ./View/MLP/*h ./View/MLP/*cpp  ./TESTING/*h ./TESTING/*cpp
 clean : uninstall
 	rm -rf View/Build_MLP $(TARGET) *.a *.out *.tar 
 	rm -rf Documentation

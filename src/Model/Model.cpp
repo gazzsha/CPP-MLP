@@ -1,7 +1,7 @@
 #include "Model.h"
 namespace s21 {
-Model::Model(const NetworkType& type_, const size_t& count_of_hidden_layers_,
-             const size_t& epochs_)
+Model::Model(const NetworkType &type_, const size_t &count_of_hidden_layers_,
+             const size_t &epochs_)
     : input_train(),
       input_test(),
       average_accuracy(0),
@@ -18,7 +18,7 @@ Model::Model(const NetworkType& type_, const size_t& count_of_hidden_layers_,
       type(type_),
       count_hidden_layers(count_of_hidden_layers_),
       epochs(epochs_) {}
-void Model::set_path_file_test(const std::string& path_file) {
+void Model::set_path_file_test(const std::string &path_file) {
   input_test.file_path = path_file;
   average_accuracy_vec.clear();
   precision_vec.clear();
@@ -26,20 +26,21 @@ void Model::set_path_file_test(const std::string& path_file) {
   f_measure_vec.clear();
   time_vec.clear();
 }
-// void Model::SwitchModel() {
-//   type == NetworkType::kGraphNetwork
-//       ? model.reset(std::make_unique<Matrix>(count_hidden_layers).release())
-//       : model.reset(std::make_unique<Graph>(count_hidden_layers).release());
-// }
-void Model::set_path_file_train(const std::string& path_file) {
+void Model::SwitchModel() {
+  type == NetworkType::kGraphNetwork
+      ? (type = NetworkType::kMatrixNetwork,
+         model.reset(std::make_unique<Matrix>(count_hidden_layers).release()))
+      : model.reset(std::make_unique<Graph>(count_hidden_layers).release());
+}
+void Model::set_path_file_train(const std::string &path_file) {
   input_train.file_path = path_file;
 }
 
-void Model::set_training_sample_share(const double& val) noexcept {
+void Model::set_training_sample_share(const double &val) noexcept {
   training_sample_share = val;
 }
 
-void Model::set_epochs(const size_t& val) noexcept { epochs = val; }
+void Model::set_epochs(const size_t &val) noexcept { epochs = val; }
 
 double Model::get_average_accuracy() const noexcept { return average_accuracy; }
 
@@ -58,27 +59,27 @@ vector_ Model::get_f_measure_vec() const noexcept { return f_measure_vec; }
 vector_ Model::get_time_vec() const noexcept { return time_vec; }
 double Model::get_average_accuracy_of_full_train() const noexcept {
   double sum = 0;
-  for (const auto& v : average_accuracy_vec) sum += v;
+  for (const auto &v : average_accuracy_vec) sum += v;
   return sum / static_cast<double>(get_epochs());
 }
 double Model::get_average_precision_of_full_train() const noexcept {
   double sum = 0;
-  for (const auto& v : precision_vec) sum += v;
+  for (const auto &v : precision_vec) sum += v;
   return sum / static_cast<double>(get_epochs());
 }
 double Model::get_average_recall_of_full_train() const noexcept {
   double sum = 0;
-  for (const auto& v : recall_vec) sum += v;
+  for (const auto &v : recall_vec) sum += v;
   return sum / static_cast<double>(get_epochs());
 }
 double Model::get_average_f_measure_of_full_train() const noexcept {
   double sum = 0;
-  for (const auto& v : f_measure_vec) sum += v;
+  for (const auto &v : f_measure_vec) sum += v;
   return sum / static_cast<double>(get_epochs());
 }
 double Model::get_full_time_of_full_train() const noexcept {
   double sum = 0;
-  for (const auto& v : time_vec) sum += v;
+  for (const auto &v : time_vec) sum += v;
   return sum;
 }
 vector_ Model::get_vector_epochs() const noexcept {
@@ -145,26 +146,26 @@ void Model::Test() {
   f_measure_vec.push_back(f_measure);
   time_vec.push_back(time.count());
 
-  std::cout << "True: " << count_of_true << "\n"
-            << "All: " << input_test.answer.size() << "\n"
-            << "average_accuracy: " << accuracy << "\n"
-            << "All > 0.5: " << count_of_all << "\n"
-            << "Acuracy" << average_accuracy << "\n"
-            << "Precision " << precision << "\n"
-            << "Recall " << recall << "\n"
-            << "F - mera " << f_measure << "\n"
-            << "Time: " << time.count() << "\n";
+  // std::cout << "True: " << count_of_true << "\n"
+  //           << "All: " << input_test.answer.size() << "\n"
+  //           << "average_accuracy: " << accuracy << "\n"
+  //           << "All > 0.5: " << count_of_all << "\n"
+  //           << "Acuracy" << average_accuracy << "\n"
+  //           << "Precision " << precision << "\n"
+  //           << "Recall " << recall << "\n"
+  //           << "F - mera " << f_measure << "\n"
+  //           << "Time: " << time.count() << "\n";
 }
 
-bool Model::IsRightLetter(const vector_& result, const vector_& expect,
-                          const double& elem) const noexcept {
+bool Model::IsRightLetter(const vector_ &result, const vector_ &expect,
+                          const double &elem) const noexcept {
   auto it_result = std::find(result.begin(), result.end(), elem);
   auto index_result = std::distance(result.begin(), it_result);
   return *(expect.begin() + index_result);
 }
 
-bool Model::IsRightLetter(const vector_& result,
-                          const vector_& expect) const noexcept {
+bool Model::IsRightLetter(const vector_ &result,
+                          const vector_ &expect) const noexcept {
   auto it_result = std::max_element(result.begin(), result.end());
   auto it_expect = std::max_element(expect.begin(), expect.end());
   auto index_result = std::distance(result.begin(), it_result);
@@ -172,11 +173,11 @@ bool Model::IsRightLetter(const vector_& result,
   return (index_result == index_expect);
 }
 
-void Model::CollectionDataOfMetrics(const vector_& result,
-                                    const vector_& expect, size_t& tp,
-                                    size_t& tn, size_t& fp,
-                                    size_t& fn) const noexcept {
-  for (const auto& elem : result) {
+void Model::CollectionDataOfMetrics(const vector_ &result,
+                                    const vector_ &expect, size_t &tp,
+                                    size_t &tn, size_t &fp,
+                                    size_t &fn) const noexcept {
+  for (const auto &elem : result) {
     if (elem > 0.5) {
       if (IsRightLetter(result, expect, elem))
         ++tp;
@@ -190,27 +191,27 @@ void Model::CollectionDataOfMetrics(const vector_& result,
     }
   }
 }
-size_t Model::CountOfTrueResult(const vector_& vec) const noexcept {
+size_t Model::CountOfTrueResult(const vector_ &vec) const noexcept {
   size_t temp_count = 0;
-  for (const auto& v : vec)
+  for (const auto &v : vec)
     if (v > 0.5) temp_count++;
   return temp_count;
 }
 
-void Model::WriteToFileWeights(const std::string& file_path) {
+void Model::WriteToFileWeights(const std::string &file_path) {
   model->WriteToFileWeights(file_path);
 }
-void Model::ReadFromFileWeights(const std::string& file_path) {
+void Model::ReadFromFileWeights(const std::string &file_path) {
   model->ReadFromFileWeights(file_path);
 }
-void Model::CrossValidation(const size_t& k) {
+void Model::CrossValidation(const size_t &k) {
   model->CrossValidation(input_train, k);
 }
-char Model::PredictLetter(const vector_& input) const noexcept {
+char Model::PredictLetter(const vector_ &input) const noexcept {
   return model->PredictLetter(input);
 }
 
-void Model::set_count_hidden_layer(const size_t& count) {
+void Model::set_count_hidden_layer(const size_t &count) {
   model->set_count_hidden_layer(count);
 }
 vector_ Model::PredictVector(vector_ data) const {

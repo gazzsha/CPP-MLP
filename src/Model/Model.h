@@ -2,19 +2,20 @@
 #define S21_CCP7_MLP_MODEL_MODEL_H
 #include "Graph.h"
 #include "Input.h"
+#include "Matrix.h"
 #include "Network.h"
 enum class NetworkType { kGraphNetwork = 0, kMatrixNetwork };
 
 namespace s21 {
 class Model {
  public:
-  Model(const NetworkType& = NetworkType::kGraphNetwork, const size_t& = 2,
-        const size_t& = 4);
+  Model(const NetworkType & = NetworkType::kGraphNetwork, const size_t & = 2,
+        const size_t & = 4);
   ~Model() = default;
-  void set_path_file_test(const std::string&);
-  void set_path_file_train(const std::string&);
-  void set_training_sample_share(const double&) noexcept;
-  void set_epochs(const size_t&) noexcept;
+  void set_path_file_test(const std::string &);
+  void set_path_file_train(const std::string &);
+  void set_training_sample_share(const double &) noexcept;
+  void set_epochs(const size_t &) noexcept;
   double get_average_accuracy() const noexcept;
   double get_precision() const noexcept;
   double get_recall() const noexcept;
@@ -32,15 +33,15 @@ class Model {
   double get_average_f_measure_of_full_train() const noexcept;
   double get_full_time_of_full_train() const noexcept;
   vector_ get_vector_epochs() const noexcept;
-  // void SwitchModel();
+  void SwitchModel();
   void Train();
   void TrainOnline();
   void Test();
-  void WriteToFileWeights(const std::string&);
-  void ReadFromFileWeights(const std::string&);
-  void CrossValidation(const size_t&);
-  void set_count_hidden_layer(const size_t&);
-  char PredictLetter(const vector_&) const noexcept;
+  void WriteToFileWeights(const std::string &);
+  void ReadFromFileWeights(const std::string &);
+  void CrossValidation(const size_t &);
+  void set_count_hidden_layer(const size_t &);
+  char PredictLetter(const vector_ &) const noexcept;
   vector_ PredictVector(vector_ data) const;
 
  private:
@@ -64,14 +65,14 @@ class Model {
   NetworkType type;
   size_t count_hidden_layers;
   size_t epochs;
-  void CollectionDataOfMetrics(const vector_& result, const vector_& expect,
-                               size_t& tp, size_t& tn, size_t& fp,
-                               size_t& fn) const noexcept;
-  bool IsRightLetter(const vector_& result,
-                     const vector_& expect) const noexcept;
-  bool IsRightLetter(const vector_& result, const vector_& expect,
-                     const double& elem) const noexcept;
-  size_t CountOfTrueResult(const vector_& vec) const noexcept;
+  void CollectionDataOfMetrics(const vector_ &result, const vector_ &expect,
+                               size_t &tp, size_t &tn, size_t &fp,
+                               size_t &fn) const noexcept;
+  bool IsRightLetter(const vector_ &result,
+                     const vector_ &expect) const noexcept;
+  bool IsRightLetter(const vector_ &result, const vector_ &expect,
+                     const double &elem) const noexcept;
+  size_t CountOfTrueResult(const vector_ &vec) const noexcept;
   void ClearData();
 };
 }  // namespace s21
