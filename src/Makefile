@@ -28,17 +28,17 @@ $(TARGET) : $(SRC) $(SRC_TEST)
 
 
 install: clean | install_qcustom_plot
-	rm -rf View/Build_MLP
-	mkdir View/Build_MLP
-	cd View/Build_MLP && cmake ../
-	cd View/Build_MLP && make
-	open View/Build_MLP/MLP.app/
+	rm -rf View/MLP/Build_MLP
+	mkdir View/MLP/Build_MLP
+	cd View/MLP/Build_MLP && cmake ../
+	cd View/MLP/Build_MLP && make
+	open View/MLP/Build_MLP/MLP.app/
 
 uninstall:
-	rm -rf View/Build_MLP View/QCustomPlot-library
+	rm -rf View/MLP/Build_MLP View/MLP/build  View/MLP/QCustomPlot-library
 
 dist: install
-	tar --totals -cvf MLp.tar View TESTING Model Controller
+	tar --totals -cvf MLP.tar View TEST Model Controller
 
 dvi:
 	Doxygen Doxyfile
@@ -52,7 +52,7 @@ install_qcustom_plot:
 style: 
 	clang-format -i ./Model/*h ./Model/*cpp ./Controller/*h ./Controller/*cpp ./View/MLP/*h ./View/MLP/*cpp ./TEST/*cpp
 clean : uninstall
-	rm -rf View/Build_MLP $(TARGET) *.a *.out *.tar 
+	rm -rf View/MLP/Build_MLP $(TARGET) *.a *.out *.tar 
 	rm -rf Documentation
 	rm -rf $(SRC_MODEL_PATH)/*.out $(SRC_MODEL_PATH)/*.dSYM $(TESTS)/*.dSYM 
 	rm -rf *.dSYM 
