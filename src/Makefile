@@ -38,7 +38,7 @@ uninstall:
 	rm -rf View/Build_MLP View/QCustomPlot-library
 
 dist: install
-	tar --totals -cvf 3d_viewer.tar View TESTING Model Controller
+	tar --totals -cvf MLp.tar View TESTING Model Controller
 
 dvi:
 	Doxygen Doxyfile
@@ -50,7 +50,7 @@ install_qcustom_plot:
 	cd View/MLP && git clone https://github.com/legerch/QCustomPlot-library
 
 style: 
-	clang-format -i ./Model/*h ./Model/*cpp ./Controller/*h ./Controller/*cpp ./View/MLP/*h ./View/MLP/*cpp  ./TESTING/*h ./TESTING/*cpp
+	clang-format -i ./Model/*h ./Model/*cpp ./Controller/*h ./Controller/*cpp ./View/MLP/*h ./View/MLP/*cpp ./TEST/*cpp
 clean : uninstall
 	rm -rf View/Build_MLP $(TARGET) *.a *.out *.tar 
 	rm -rf Documentation
